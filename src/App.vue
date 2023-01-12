@@ -1,12 +1,12 @@
 <template>
 	<header class="main-header">
-		<div class="wrapper">
-			<nav>
-				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/about">About</RouterLink>
-			</nav>
-		</div>
+		<nav>
+			<RouterLink to="/">Home</RouterLink>
+			<RouterLink to="/menu">Menu</RouterLink>
+		</nav>
 	</header>
 
-	<RouterView />
+	<div class="wrapper">
+		<RouterView />
+	</div>
 </template>
