@@ -20,10 +20,12 @@
 	const props = defineProps({
 		categories: Array,
 	});
+	const emits = defineEmits(['filter']);
 
 	const current = ref(0);
 
 	function handleClick(index) {
 		current.value = index;
+		emits('filter', props.categories[index]);
 	}
 </script>
