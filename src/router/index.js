@@ -40,6 +40,14 @@ const router = createRouter({
 				layout: AppLayoutsEnum.admin,
 			},
 		},
+		{
+			path: '/ui/buttons',
+			name: 'button',
+			component: () => import('../views/ButtonsView.vue'),
+			meta: {
+				layout: AppLayoutsEnum.admin,
+			},
+		},
 	],
 });
 
