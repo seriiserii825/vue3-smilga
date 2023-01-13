@@ -8,7 +8,9 @@
 	<main class="app-layout-default-main p-2 bg-amber-50">
 		<div class="admin">
 			<div class="admin__sidebar">
-				<h2 class="admin__title">Admin lte</h2>
+				<h2 class="admin__title">
+					<RouterLink to="/">Home</RouterLink>
+				</h2>
 				<MenuDropdown
 					icon="fa-user-secret"
 					:items="[

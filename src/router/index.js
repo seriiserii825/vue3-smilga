@@ -17,6 +17,14 @@ const router = createRouter({
 			component: () => import('../views/MenuView.vue'),
 		},
 		{
+			path: '/admin',
+			name: 'admin',
+			component: () => import('../views/AdminView.vue'),
+			meta: {
+				layout: AppLayoutsEnum.admin,
+			},
+		},
+		{
 			path: '/ui',
 			name: 'ui',
 			component: () => import('../views/UiView.vue'),
