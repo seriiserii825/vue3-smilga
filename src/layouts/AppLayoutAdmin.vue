@@ -5,7 +5,15 @@
 
 <template>
 	<main class="app-layout-default-main p-2 bg-amber-50">
-		<div>AppLayout Admin</div>
-		<slot />
+		<div class="admin">
+			<div class="admin__sidebar">
+				<h2 class="admin__title">Admin lte</h2>
+				<div class="menu-select">
+				</div>
+			</div>
+			<div class="admin__main">
+				<slot />
+			</div>
+		</div>
 	</main>
 </template>

@@ -15,9 +15,14 @@ const router = createRouter({
 			path: '/menu',
 			name: 'menu',
 			component: () => import('../views/MenuView.vue'),
-			// meta: {
-			// 	layout: AppLayoutsEnum.admin,
-			// },
+		},
+		{
+			path: '/ui',
+			name: 'ui',
+			component: () => import('../views/UiView.vue'),
+			meta: {
+				layout: AppLayoutsEnum.admin,
+			},
 		},
 	],
 });

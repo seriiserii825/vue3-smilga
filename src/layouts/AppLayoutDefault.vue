@@ -8,6 +8,7 @@
 		<nav>
 			<RouterLink to="/">Home</RouterLink>
 			<RouterLink to="/menu">Menu</RouterLink>
+			<RouterLink to="/ui">UI</RouterLink>
 		</nav>
 	</header>
 	<div class="wrapper">
