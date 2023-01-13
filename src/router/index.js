@@ -24,6 +24,14 @@ const router = createRouter({
 				layout: AppLayoutsEnum.admin,
 			},
 		},
+		{
+			path: '/ui/colors',
+			name: 'colors',
+			component: () => import('../views/ColorsView.vue'),
+			meta: {
+				layout: AppLayoutsEnum.admin,
+			},
+		},
 	],
 });
 

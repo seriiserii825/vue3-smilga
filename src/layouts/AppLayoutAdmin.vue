@@ -12,8 +12,8 @@
 				<MenuDropdown
 					icon="fa-user-secret"
 					:items="[
+						{ title: 'Colors', url: '/ui/colors' },
 						{ title: 'Buttons', url: '/ui/buttons' },
-						{ title: 'Selects', url: '/ui/selects' },
 					]"
 				/>
 			</div>
@@ -23,3 +23,26 @@
 		</div>
 	</main>
 </template>
+<style lang="scss" scoped>
+	.admin {
+		display: flex;
+		justify-content: space-between;
+		min-height: 100vh;
+		&__sidebar {
+			padding: 3rem 2rem;
+			width: 16%;
+			color: white;
+			background: #444;
+		}
+		&__main {
+			flex: 1;
+			padding: 3rem 2rem;
+			background: #f1f1f1;
+		}
+		&__title {
+			margin-bottom: 2rem;
+			padding-bottom: 2rem;
+			border-bottom: 1px solid #666;
+		}
+	}
+</style>

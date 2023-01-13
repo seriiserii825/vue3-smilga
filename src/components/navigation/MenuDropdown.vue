@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "@vue/reactivity";
+	import { ref } from '@vue/reactivity';
 
 	const props = defineProps({
 		items: {
@@ -18,7 +18,10 @@ import { ref } from "@vue/reactivity";
 </script>
 <template>
 	<div class="menu-dropdown">
-		<header class="menu-dropdown__header prevent-select" @click="toggleList">
+		<header
+			class="menu-dropdown__header prevent-select"
+			@click="toggleList"
+		>
 			<span class="menu-dropdown__icon"
 				><font-awesome-icon :icon="`fa-solid ${icon}`"
 			/></span>
@@ -35,5 +38,21 @@ import { ref } from "@vue/reactivity";
 </template>
 <style lang="scss" scoped>
 	.menu-dropdown {
+		padding: 1rem;
+		background: var(--dark-bg-darken);
+		&__header {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+		}
+		&__icon {
+			margin-right: 1rem;
+		}
+		&__list {
+			margin-top: 1rem;
+		}
+		li {
+			padding: 0.5rem 1rem;
+		}
 	}
 </style>
