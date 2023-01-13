@@ -9,9 +9,8 @@
 		<div class="admin">
 			<div class="admin__sidebar">
 				<h2 class="admin__title">Admin lte</h2>
-				<font-awesome-icon icon="fa-solid fa-user-secret" />
-				<font-awesome-icon icon="fa-solid fa-magnifying-glass-plus" />
 				<MenuDropdown
+					icon="fa-user-secret"
 					:items="[
 						{ title: 'Buttons', url: '/ui/buttons' },
 						{ title: 'Selects', url: '/ui/selects' },
