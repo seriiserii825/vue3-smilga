@@ -2,20 +2,22 @@
 	<div class="menu-filter">
 		<h1 class="title">Our menu</h1>
 		<div class="menu-filter__buttons">
-			<button
-				v-for="(item, index) in categories"
+			<Button
+				v-for="(category, index) in categories"
 				:key="index"
-				class="menu-filter__button btn"
-				:class="{ 'btn--empty': current !== index }"
+				class="menu-filter__button"
 				@click="handleClick(index)"
+				:label="category"
+				:outline="current !== index"
 			>
-				{{ item }}
-			</button>
+				{{ category }}
+			</Button>
 		</div>
 	</div>
 </template>
 <script setup>
 	import { ref } from '@vue/reactivity';
+	import Button from '@/components/ui/Button.vue';
 
 	const props = defineProps({
 		categories: Array,
