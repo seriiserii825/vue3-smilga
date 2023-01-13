@@ -1,9 +1,20 @@
-<script setup></script>
+<script setup>
+	const props = defineProps({
+		items: {
+			type: Array,
+			required: true,
+		},
+	});
+</script>
 <template>
 	<div class="menu-dropdown">
-		<header class="menu-dropdown__header"></header>
+		<header class="menu-dropdown__header">UI</header>
 		<ul class="menu-dropdown__list">
-			<li></li>
+			<li v-for="{ title, url } in items" :key="title">
+				<router-link :to="url" class="menu-dropdown__link">{{
+					title
+				}}</router-link>
+			</li>
 		</ul>
 	</div>
 </template>
