@@ -1,12 +1,9 @@
+<script setup>
+	import { RouterView } from 'vue-router';
+	import AppLayout from '@/layouts/AppLayout.vue';
+</script>
 <template>
-	<header class="main-header">
-		<nav>
-			<RouterLink to="/">Home</RouterLink>
-			<RouterLink to="/menu">Menu</RouterLink>
-		</nav>
-	</header>
-
-	<div class="wrapper">
+	<AppLayout>
 		<RouterView />
-	</div>
+	</AppLayout>
 </template>

@@ -7,6 +7,7 @@ export const AppLayoutsEnum = {
 
 export const AppLayoutToFileMap = {
 	default: 'AppLayoutDefault.vue',
+	admin: 'AppLayoutAdmin.vue',
 	login: 'AppLayoutLogin.vue',
 	error: 'AppLayoutError.vue',
 };

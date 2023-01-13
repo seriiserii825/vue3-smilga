@@ -1,4 +1,4 @@
-import {AppLayoutsEnum, AppLayoutToFileMap } from '@/layouts/types.js';
+import { AppLayoutsEnum, AppLayoutToFileMap } from '@/layouts/types.js';
 
 export async function loadLayoutMiddleware(route) {
 	const { layout } = route.meta;

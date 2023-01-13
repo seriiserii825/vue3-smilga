@@ -4,8 +4,14 @@
 </script>
 
 <template>
-	<main class="app-layout-default-main p-2 bg-amber-50">
+	<header class="main-header">
+		<nav>
+			<RouterLink to="/">Home</RouterLink>
+			<RouterLink to="/menu">Menu</RouterLink>
+		</nav>
+	</header>
+	<div class="wrapper">
 		<div>AppLayoutDefault</div>
 		<slot />
-	</main>
+	</div>
 </template>
