@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from "@vue/reactivity";
+
 	const props = defineProps({
 		items: {
 			type: Array,
@@ -9,17 +11,23 @@
 			required: true,
 		},
 	});
+	const isVisibleList = ref(false);
+	function toggleList() {
+		isVisibleList.value = !isVisibleList.value;
+	}
 </script>
 <template>
 	<div class="menu-dropdown">
-		<header class="menu-dropdown__header">
-			<span class="menu-dropdown__icon"><font-awesome-icon :icon="`fa-solid ${icon}`" /></span>
+		<header class="menu-dropdown__header prevent-select" @click="toggleList">
+			<span class="menu-dropdown__icon"
+				><font-awesome-icon :icon="`fa-solid ${icon}`"
+			/></span>
 			<span>UI</span>
 		</header>
-		<ul class="menu-dropdown__list">
+		<ul v-if="isVisibleList" class="menu-dropdown__list">
 			<li v-for="{ title, url } in items" :key="title">
 				<router-link :to="url" class="menu-dropdown__link">
-					<span>{{ title }}</span>
+					<span>- {{ title }}</span>
 				</router-link>
 			</li>
 		</ul>

@@ -1,0 +1,18 @@
+.menu-dropdown {
+	padding: 1rem;
+	background: #333;
+	&__header {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	&__icon {
+		margin-right: 1rem;
+	}
+	&__list {
+		margin-top: 1rem;
+	}
+	li {
+		padding: 0.5rem 1rem;
+	}
+}
