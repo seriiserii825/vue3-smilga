@@ -11,6 +11,9 @@
 				<h2 class="admin__title">
 					<RouterLink to="/">Home</RouterLink>
 				</h2>
+        <h2 class="admin__title">
+          <RouterLink to="/admin">Admin</RouterLink>
+        </h2>
 				<MenuDropdown
 					icon="fa-user-secret"
 					:items="[

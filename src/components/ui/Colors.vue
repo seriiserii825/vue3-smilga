@@ -13,6 +13,10 @@ import ColorsItem from '@/components/globals/ColorsItem.vue';
       <ColorsItem color="contrast-hover" />
       <ColorsItem color="dark-bg" />
       <ColorsItem color="dark-bg-darken" />
+      <ColorsItem color="primary" />
+      <ColorsItem color="primary-hover" />
+      <ColorsItem color="success" />
+      <ColorsItem color="success-hover" />
     </ul>
   </div>
 </template>
