@@ -5,7 +5,7 @@ import {items} from "../data/lorem-ipsum";
 import {computed} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
 
-const count = ref(1);
+const count = ref(3);
 
 const filtered = computed(() => {
   const result = items.slice(0, count.value);
@@ -23,7 +23,7 @@ function changeCount(value) {
       <h1 class="title">Lorem ipsum generator</h1>
       <header class="lorem-ipsum__header">
         <span>Paragraphs: </span>
-        <Input type="number" :value="1" @change="changeCount"/>
+        <Input type="number" :value="count" @change="changeCount"/>
       </header>
       <div class="lorem-ipsum__filter">
         <Checkbox label="Use title" value="title"/>
