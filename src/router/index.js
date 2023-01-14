@@ -33,14 +33,6 @@ const router = createRouter({
 			},
 		},
 		{
-			path: '/ui/colors',
-			name: 'colors',
-			component: () => import('../views/ColorsView.vue'),
-			meta: {
-				layout: AppLayoutsEnum.admin,
-			},
-		},
-		{
 			path: '/ui/buttons',
 			name: 'button',
 			component: () => import('../views/ButtonsView.vue'),

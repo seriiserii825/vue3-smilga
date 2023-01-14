@@ -14,7 +14,6 @@
 				<MenuDropdown
 					icon="fa-user-secret"
 					:items="[
-						{ title: 'Colors', url: '/ui/colors' },
 						{ title: 'Buttons', url: '/ui/buttons' },
 					]"
 				/>

@@ -1,9 +1,9 @@
 <script setup>
-	import SectionHeader from '@/components/globals/SectionHeader.vue';
+  import Colors from "@/components/ui/Colors.vue";
 </script>
 <template>
 	<div>
-		<SectionHeader title="Buttons" />
+    <Colors/>
 	</div>
 </template>
 <style lang="scss"></style>
