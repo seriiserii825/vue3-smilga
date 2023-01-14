@@ -18,6 +18,7 @@
 					icon="fa-user-secret"
 					:items="[
 						{ title: 'Buttons', url: '/ui/buttons' },
+						{ title: 'Inputs', url: '/ui/inputs' },
 					]"
 				/>
 			</div>
