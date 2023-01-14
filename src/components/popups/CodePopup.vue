@@ -1,5 +1,7 @@
 <script setup>
 import {useCodePopupStore} from "../../stores/CodePopupStore";
+import Button from "@/components/ui/Button.vue";
+import {ref} from "vue";
 
 const codePopupStore = useCodePopupStore();
 const props = defineProps({
@@ -13,8 +15,26 @@ const props = defineProps({
   },
 });
 
+const btn_text = ref('Copy');
+
 function closePopup() {
   codePopupStore.hidePopup();
+}
+
+function copyCodeToClipboard(){
+  navigator.clipboard.writeText(props.code);
+  btn_text.value = 'Copied';
+  setTimeout(() => {
+    closePopup();
+  }, 1000);
+}
+
+function copyUseToClipboard(){
+  navigator.clipboard.writeText(props.use);
+  btn_text.value = 'Copied';
+  setTimeout(() => {
+    closePopup();
+  }, 1000);
 }
 
 </script>
@@ -24,12 +44,22 @@ function closePopup() {
     <div class="code-popup__body">
       <div v-if="use">
         <h3 class="code-popup__title">How to use</h3>
-        <div class="code-popup__info"><code>{{ use }}</code></div>
+        <div class="code-popup__info" @click="copyUseToClipboard">
+          <pre><code>{{ use }}</code></pre>
+          <div class="code-popup__btn">
+            <Button :label="btn_text"/>
+          </div>
+        </div>
       </div>
       <div v-if="code">
         <h3 class="code-popup__title">Code:</h3>
-        <div class="code-popup__value">
-          <pre><code>{{ code }}</code></pre>
+        <div class="code-popup__info">
+          <pre>
+            <code>{{ code }}</code>
+          </pre>
+          <div class="code-popup__btn" @click="copyCodeToClipboard">
+            <Button :label="btn_text" color="success"/>
+          </div>
         </div>
       </div>
     </div>
@@ -70,6 +100,14 @@ function closePopup() {
     padding: 2rem;
     color: white;
     background: var(--dark-bg);
+  }
+  &__info {
+    position: relative;
+  }
+  &__btn {
+     position: absolute;
+      bottom: 2rem;
+      right: 2rem;
   }
 }
 </style>

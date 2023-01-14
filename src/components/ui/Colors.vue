@@ -33,15 +33,15 @@ function showCode() {
     <SectionHeader title="Colors"/>
     <ul class="colors__list">
       <ColorsItem color="accent" @click="showCode"/>
-      <ColorsItem color="accent-hover"/>
-      <ColorsItem color="contrast"/>
-      <ColorsItem color="contrast-hover"/>
-      <ColorsItem color="dark-bg"/>
-      <ColorsItem color="dark-bg-darken"/>
-      <ColorsItem color="primary"/>
-      <ColorsItem color="primary-hover"/>
-      <ColorsItem color="success"/>
-      <ColorsItem color="success-hover"/>
+      <ColorsItem color="accent-hover" @click="showCode"/>
+      <ColorsItem color="contrast" @click="showCode"/>
+      <ColorsItem color="contrast-hover" @click="showCode"/>
+      <ColorsItem color="dark-bg" @click="showCode"/>
+      <ColorsItem color="dark-bg-darken" @click="showCode"/>
+      <ColorsItem color="primary" @click="showCode"/>
+      <ColorsItem color="primary-hover" @click="showCode"/>
+      <ColorsItem color="success" @click="showCode"/>
+      <ColorsItem color="success-hover" @click="showCode"/>
     </ul>
   </div>
 </template>
