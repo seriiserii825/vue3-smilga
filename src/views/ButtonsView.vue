@@ -32,6 +32,20 @@ import Button from "@/components/ui/Button.vue";
       <Button :outline="true" label="success" color="success"/>
     </li>
   </ul>
+  <ul class="buttons">
+    <li>
+      <Button icon="fa-home"/>
+    </li>
+    <li>
+      <Button :outline="true" color="contrast" icon="fa-user"/>
+    </li>
+    <li>
+      <Button icon="fa-envelope" color="primary"/>
+    </li>
+    <li>
+      <Button :outline="true" color="success" icon="fa-circle-xmark"/>
+    </li>
+  </ul>
 </template>
 
 <style lang="scss" scoped>

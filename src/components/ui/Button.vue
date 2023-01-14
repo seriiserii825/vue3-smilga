@@ -11,18 +11,26 @@ const props = defineProps({
   color: {
     type: String,
     default: 'accent'
+  },
+  icon: {
+    type: String,
+    required: false
   }
 });
 </script>
 <template>
-  <button :class="['btn', { 'btn--outline': outline }, `btn--${color}`]">{{ label }}</button>
+  <button :class="['btn', { 'btn--outline': outline }, `btn--${color}`, {'btn--icon': icon}]">
+    <span v-if="icon"><font-awesome-icon :icon="`fa-solid ${icon}`"/></span>
+    <span v-else>{{ label }}</span>
+  </button>
 </template>
 <style lang="scss" scoped>
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  height: 4.5rem;
   font-size: 2rem;
   font-weight: bold;
   color: white;
@@ -57,7 +65,7 @@ const props = defineProps({
     background: var(--primary);
     border: 1px solid var(--primary);
     &:hover {
-      background: var(--primary-hover-hover);
+      background: var(--primary-hover);
       border: 1px solid var(--primary);
     }
     &.btn--outline {
@@ -76,7 +84,7 @@ const props = defineProps({
     background: var(--success);
     border: 1px solid var(--success);
     &:hover {
-      background: var(--primary-hover);
+      background: var(--success-hover);
       border: 1px solid var(--primary);
     }
     &.btn--outline {
@@ -99,6 +107,12 @@ const props = defineProps({
       background: var(--accent);
       border-color: var(--accent);
     }
+  }
+  &.btn--icon {
+    padding: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
   }
 }
 </style>
