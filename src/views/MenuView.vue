@@ -26,3 +26,9 @@
 		}
 	}
 </script>
+
+<style lang="scss">
+.menu-view {
+  padding-top: 6rem;
+}
+</style>

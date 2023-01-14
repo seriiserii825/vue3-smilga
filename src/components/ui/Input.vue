@@ -1,4 +1,6 @@
 <script setup>
+import {ref} from "@vue/reactivity";
+
 const props = defineProps({
   type: {
     type: String,
@@ -13,7 +15,7 @@ const props = defineProps({
     required: false
   },
   value: {
-    type: String,
+    type: [String, Number],
     required: false
   },
   behaviour: {
@@ -25,6 +27,14 @@ const props = defineProps({
     required: false
   },
 })
+
+const emits = defineEmits(['change']);
+
+const current = ref(props.value);
+
+function changeHandler() {
+  emits('change', current);
+}
 </script>
 <template>
   <div class='input'>
@@ -37,7 +47,9 @@ const props = defineProps({
             {'input--success': behaviour === 'success'},
             {'input--error': behaviour === 'error'},
             ]"
-        :value="value">
+        v-model="current"
+        @change="changeHandler"
+    >
     <p v-if="error" class="input__message input__message--error">{{ error }}</p>
   </div>
 </template>
