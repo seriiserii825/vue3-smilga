@@ -4,11 +4,22 @@ import Checkbox from "../components/ui/Checkbox.vue";
 import {items} from "../data/lorem-ipsum";
 import {computed} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
+import Preloader from "../components/ui/Preloader.vue";
 
 const count = ref(3);
+const max_count = items.length;
+const filter_title = ref(true);
+const filter_subtitle = ref(true);
+const filter_text = ref(false);
+const filter_footer = ref(false);
+const loading = ref(false);
 
-const filtered = computed(() => {
-  const result = items.slice(0, count.value);
+let filtered = computed(() => {
+  loading.value = true;
+  let result = items.slice(0, count.value);
+  setTimeout(() => {
+    loading.value = false;
+  }, 500);
   return result;
 })
 
@@ -16,29 +27,53 @@ function changeCount(value) {
   count.value = value;
 }
 
+function filterTitleHandler(value) {
+  filter_title.value = value;
+}
+
+function filterSubtitleHandler(value) {
+  filter_subtitle.value = value;
+}
+
+function filterTextHandler(value) {
+  filter_text.value = value;
+}
+
+function filterFooterHandler(value) {
+  filter_footer.value = value;
+}
 </script>
 <template>
   <div class='lorem-ipsum'>
     <div class="container">
-      <h1 class="title">Lorem ipsum generator</h1>
-      <header class="lorem-ipsum__header">
-        <span>Paragraphs: </span>
-        <Input type="number" :value="count" @change="changeCount"/>
-      </header>
-      <div class="lorem-ipsum__filter">
-        <Checkbox label="Use title" value="title"/>
-        <Checkbox label="Use subtitle" value="subtitle"/>
-        <Checkbox label="Use text" value="text"/>
-        <Checkbox label="Use footer" value="footer"/>
-      </div>
-      <ul class="lorem-ipsum__list" v-if="filtered.length">
-        <li v-for="({id, title, subtitle, text, date}) in filtered" :key="id">
-          <h2>{{ title }}</h2>
-          <h3>{{ subtitle }}</h3>
-          <p>{{ text }}</p>
-          <footer>Date: ({{ date }})</footer>
-        </li>
-      </ul>
+      <section class="lorem-ipsum__wrap">
+        <aside class="lorem-ipsum__sidebar">
+          <h1 class="title">Lorem ipsum generator</h1>
+          <header class="lorem-ipsum__header">
+            <p>Paragraphs: </p>
+            <Input type="number" :value="count" @change="changeCount" :max="max_count" :min="1"/>
+          </header>
+          <div class="lorem-ipsum__filter">
+            <Checkbox @checkbox-handler="filterTitleHandler" label="Use title" value="title" :default="true"/>
+            <Checkbox @checkbox-handler="filterSubtitleHandler" label="Use subtitle" value="subtitle" :default="true"/>
+            <Checkbox @checkbox-handler="filterTextHandler" label="Use text" value="text"/>
+            <Checkbox @checkbox-handler="filterFooterHandler" label="Use footer" value="footer"/>
+          </div>
+        </aside>
+        <main class="lorem-ipsum__content">
+          <Preloader v-if="loading"/>
+          <div v-else>
+            <ul class="lorem-ipsum__list" v-if="filtered && filtered.length">
+              <li v-for="({id, title, subtitle, text, date}) in filtered" :key="id">
+                <h2 v-if="filter_title !== false">{{ title }}</h2>
+                <h3 v-if="filter_subtitle !== false">{{ subtitle }}</h3>
+                <p v-if="filter_text !== false">{{ text }}</p>
+                <footer v-if="filter_footer !== false">Date: <strong>({{ date }})</strong></footer>
+              </li>
+            </ul>
+          </div>
+        </main>
+      </section>
     </div>
   </div>
 </template>
@@ -47,22 +82,23 @@ function changeCount(value) {
   padding-top: 8rem;
   min-height: 100vh;
   background: lightgray;
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__sidebar {
+    flex: 0 0 30rem;
+  }
+  &__content {
+    flex: 1;
+    padding-left: 6rem;
+    padding-bottom: 12rem;
+  }
   .title {
     margin-bottom: 3rem;
-    text-align: center;
   }
   &__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 3rem;
-    .input {
-      margin-left: 1rem;
-    }
-  }
-  &__filter {
-    margin: 0 auto 6rem;
-    max-width: 40rem;
   }
   &__list {
     border-top: 1px solid #999;

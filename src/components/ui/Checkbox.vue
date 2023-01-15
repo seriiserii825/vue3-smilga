@@ -10,12 +10,16 @@ const props = defineProps({
     type: String,
     required: true
   },
+  default: {
+    type: Boolean,
+    required: false
+  },
 })
 const emits = defineEmits(['checkboxHandler']);
-const checked = ref(false);
+const checked = ref(props.default ? props.default : false);
 
 function toggleCheckbox() {
-  emits('checkboxHandler', checked);
+  emits('checkboxHandler', checked.value);
 }
 
 </script>
@@ -32,7 +36,6 @@ function toggleCheckbox() {
   display: block;
   margin-bottom: 1rem;
   min-height: 1.5rem;
-  padding-left: 1.5rem;
   input {
     position: absolute;
     left: 0;
