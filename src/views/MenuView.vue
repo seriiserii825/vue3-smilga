@@ -29,6 +29,6 @@
 
 <style lang="scss">
 .menu-view {
-  padding-top: 6rem;
+  padding: 8rem 0;
 }
 </style>
