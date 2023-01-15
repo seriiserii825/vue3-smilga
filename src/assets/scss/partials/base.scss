@@ -9,7 +9,9 @@
 	--primary-hover: #0f8dbb;
 	--success: #139b2d;
 	--success-hover: #19c73a;
+	--success-light: #84ef97;
 	--error: #980404;
+	--error-hover: #d20707;
 }
 html {
 	font-size: 62.5%;
@@ -28,6 +30,9 @@ html {
 }
 * {
 	outline: none;
+	&:focus {
+		outline: 1px solid black;
+	}
 }
 body {
 	position: relative;

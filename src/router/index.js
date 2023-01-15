@@ -50,6 +50,11 @@ const router = createRouter({
             name: 'color-generator',
             component: () => import('../views/ColorGeneratorView.vue'),
         },
+        {
+            path: '/grocery-bud',
+            name: 'grocery-bud',
+            component: () => import('../views/GroceryBud.vue'),
+        },
     ],
 });
 

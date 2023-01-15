@@ -98,6 +98,25 @@ const props = defineProps({
       }
     }
   }
+  &.btn--error {
+    color: white;
+    background: var(--error);
+    border: 1px solid var(--error);
+    &:hover {
+      background: var(--error-hover);
+      border: 1px solid var(--primary);
+    }
+    &.btn--outline {
+      background: transparent;
+      color: black;
+      border: 1px solid var(--error);
+      &:hover {
+        color: white;
+        background: var(--error-hover);
+        border-color: var(--error);
+      }
+    }
+  }
   &.btn--outline {
     background: transparent;
     color: black;
