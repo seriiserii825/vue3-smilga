@@ -45,6 +45,11 @@ const router = createRouter({
             name: 'lorem-ipsum',
             component: () => import('../views/LoremIpsum.vue'),
         },
+        {
+            path: '/color-generator',
+            name: 'color-generator',
+            component: () => import('../views/ColorGeneratorView.vue'),
+        },
     ],
 });
 

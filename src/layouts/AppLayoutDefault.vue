@@ -4,6 +4,7 @@
 			<RouterLink to="/">Home</RouterLink>
 			<RouterLink to="/menu">Menu</RouterLink>
       <RouterLink to="/lorem-ipsum">Lorem ipsum</RouterLink>
+      <RouterLink to="/color-generator">Color generator</RouterLink>
 			<RouterLink to="/admin">Admin</RouterLink>
 		</nav>
 	</header>
