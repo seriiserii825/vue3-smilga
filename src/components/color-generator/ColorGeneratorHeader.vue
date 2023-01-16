@@ -35,7 +35,7 @@ function generateColors() {
 <template>
   <div class='color-generator-header'>
     <h2 class="color-generator-header__title">Color generator</h2>
-    <Input :value="color" @change="changeInput" :error="error ? `Wrong color, try again` : null"/>
+    <Input v-model:value="color" :error="error ? `Wrong color, try again` : null"/>
     <Button label="Generate" color="primary" @click="generateColors"/>
   </div>
 </template>
