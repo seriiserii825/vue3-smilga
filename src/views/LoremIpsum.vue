@@ -23,16 +23,6 @@ let filtered = computed(() => {
   return result;
 })
 
-function changeCount(value) {
-  if (value > max_count) {
-    count.value = max_count;
-  } else if (value < 1) {
-    count.value = 1;
-  } else {
-    count.value = value;
-  }
-}
-
 function filterTitleHandler(value) {
   filter_title.value = value;
 }
@@ -57,7 +47,7 @@ function filterFooterHandler(value) {
           <h1 class="title">Lorem ipsum generator</h1>
           <header class="lorem-ipsum__header">
             <p>Paragraphs: </p>
-            <Input type="number" :value="count" @change="changeCount" :max="max_count" :min="1"/>
+            <Input type="number" v-model:value="count" :max="max_count" :min="1"/>
           </header>
           <div class="lorem-ipsum__filter">
             <Checkbox @checkbox-handler="filterTitleHandler" label="Use title" value="title" :default="true"/>
