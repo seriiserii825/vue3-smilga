@@ -38,6 +38,10 @@ function onSubmit() {
   }
 }
 
+function clearItems(){
+  items.value = [];
+}
+
 function resetInput() {
   set_input.value = true;
   input_value.value = ' ';
@@ -48,7 +52,7 @@ function clearMessage() {
   setTimeout(() => {
     message.value = '';
     message_type.value = '';
-  }, 1000);
+  }, 3000);
 }
 
 function successMessage() {
@@ -92,7 +96,7 @@ const messageClass = computed(() => {
           <GroceryBudItem v-for="(item) in items" :key="item.id" :item="item"/>
         </ul>
         <footer class="grocery-bud__footer">
-          <Button label="Clear Items" :outline="true" color="error"/>
+          <Button @click="clearItems" label="Clear Items" :outline="true" color="error"/>
         </footer>
       </div>
     </div>
@@ -102,14 +106,19 @@ const messageClass = computed(() => {
 .grocery-bud {
   padding: 8rem 0;
   &__body {
+    position: relative;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     max-width: 60rem;
     background: #fff;
     border-radius: 0.4rem;
     box-shadow: 0 0 8px rgba(0, 0, 0, .4);
   }
   &__info {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     margin-bottom: 2rem;
     padding: 0.4rem;
     text-align: center;

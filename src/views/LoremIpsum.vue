@@ -24,7 +24,13 @@ let filtered = computed(() => {
 })
 
 function changeCount(value) {
-  count.value = value;
+  if (value > max_count) {
+    count.value = max_count;
+  } else if (value < 1) {
+    count.value = 1;
+  } else {
+    count.value = value;
+  }
 }
 
 function filterTitleHandler(value) {

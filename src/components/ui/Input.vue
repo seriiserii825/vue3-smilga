@@ -1,4 +1,6 @@
 <script setup>
+import {computed} from "@vue/runtime-core";
+
 const props = defineProps({
   type: {
     type: String,
@@ -38,6 +40,10 @@ const props = defineProps({
   }
 });
 
+const propsValue = computed(() => {
+  return props.value;
+});
+
 const emits = defineEmits(['change']);
 
 function changeHandler(value) {
@@ -63,7 +69,7 @@ function changeHandler(value) {
 			]"
         :max="max ? max : null"
         :min="min ? min : null"
-        :value="props.value"
+        :value="propsValue"
         @change="changeHandler($event.target.value)"
     />
     <p v-if="error" class="input__message input__message--error">
