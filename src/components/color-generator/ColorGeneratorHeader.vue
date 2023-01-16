@@ -18,11 +18,6 @@ const colors = ref([]);
 
 const emits = defineEmits(['emit-colors']);
 
-function changeInput(value) {
-  color.value = value;
-  error.value = false;
-}
-
 function generateColors() {
   try {
     colors.value = new Values(color.value).all(10);
