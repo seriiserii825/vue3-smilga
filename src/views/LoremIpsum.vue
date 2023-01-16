@@ -2,7 +2,7 @@
 import Input from "../components/ui/Input.vue";
 import Checkbox from "../components/ui/Checkbox.vue";
 import {items} from "../data/lorem-ipsum";
-import {computed} from "@vue/runtime-core";
+import {computed, watch} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
 
@@ -23,6 +23,7 @@ let filtered = computed(() => {
   return result;
 })
 
+
 function filterTitleHandler(value) {
   filter_title.value = value;
 }
@@ -38,6 +39,15 @@ function filterTextHandler(value) {
 function filterFooterHandler(value) {
   filter_footer.value = value;
 }
+
+watch(count, () => {
+  if(count.value < 1){
+    count.value = 1;
+  }
+  if(count.value > max_count){
+    count.value = max_count;
+  }
+});
 </script>
 <template>
   <div class='lorem-ipsum'>

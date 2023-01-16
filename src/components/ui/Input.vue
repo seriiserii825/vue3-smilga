@@ -47,13 +47,7 @@ const propsValue = computed(() => {
 const emits = defineEmits(['update:value']);
 
 function changeHandler(e) {
-  const value = e.target.value;
-  if (props.min && value < props.min) {
-    emits('update:value', props.min);
-  }
-  if (props.max && value > props.max) {
-    emits('update:value', props.max);
-  }
+  let value = e.target.value;
   emits('update:value', value);
 }
 </script>
