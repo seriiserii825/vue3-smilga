@@ -1,6 +1,4 @@
 <script setup>
-import {ref} from '@vue/reactivity';
-
 const props = defineProps({
   type: {
     type: String,
@@ -14,7 +12,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  value: {
+  id: {
     type: [String, Number],
     required: false,
   },
@@ -33,37 +31,40 @@ const props = defineProps({
   min: {
     type: Number,
     required: false
+  },
+  value: {
+    type: String,
+    required: false
   }
 });
 
 const emits = defineEmits(['change']);
-const current = ref(props.value);
 
-function changeHandler() {
-  if (props.min && current.value < 1) {
-    current.value = 1;
+function changeHandler(value) {
+  if (props.min && value < 1) {
+    emits('change', value);
   }
-  if (props.max && current.value > props.max) {
-    current.value = props.max;
+  if (props.max && value > props.max) {
+    emits('change', value);
   }
-  emits('change', current.value);
+  emits('change', value);
 }
 </script>
 <template>
   <div class="input">
-    <label v-if="label" :for="value">{{ label }}</label>
+    <label v-if="label" :for="id">{{ label }}</label>
     <input
-        :id="value"
+        :id="id"
         :type="type"
         :placeholder="placeholder !== undefined ? placeholder : null"
         :class="[
 				{ 'input--success': behaviour === 'success' },
 				{ 'input--error': behaviour === 'error' },
 			]"
-        v-model="current"
-        @change="changeHandler"
         :max="max ? max : null"
         :min="min ? min : null"
+        :value="props.value"
+        @change="changeHandler($event.target.value)"
     />
     <p v-if="error" class="input__message input__message--error">
       {{ error }}

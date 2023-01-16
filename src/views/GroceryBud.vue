@@ -9,6 +9,8 @@ const search = ref('');
 const message = ref('');
 const message_type = ref('');
 const items = ref([]);
+const set_input = ref(false);
+const input_value = ref('');
 
 function searchHandler(value) {
   search.value = value;
@@ -24,17 +26,23 @@ function onSubmit() {
       } else {
         items.value.push({id: id, title: search.value});
         successMessage();
-        search.value = '';
+        resetInput();
       }
     } else {
       items.value.push({id: id, title: search.value});
       successMessage();
-      search.value = '';
+      resetInput();
     }
   } else {
     emptyMessage();
   }
 }
+
+function resetInput() {
+  set_input.value = true;
+  input_value.value = ' ';
+}
+
 
 function clearMessage() {
   setTimeout(() => {
@@ -77,7 +85,7 @@ const messageClass = computed(() => {
         <div v-if="message" :class="`grocery-bud__info ${messageClass}`">{{ message }}</div>
         <h2 class="grocery-bud__title">Grocery Bud</h2>
         <div class="grocery-bud__form">
-          <Input @change="searchHandler" placeholder="e.g. eggs"/>
+          <Input :value="set_input ? input_value : null" @change="searchHandler" placeholder="e.g. eggs"/>
           <Button label="Submit" @click="onSubmit"/>
         </div>
         <ul v-if="items.length" class="grocery-bud__list">
