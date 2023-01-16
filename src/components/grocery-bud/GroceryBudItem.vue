@@ -5,13 +5,22 @@ const props = defineProps({
     required: true
   }
 });
+const emits = defineEmits(['removeEmit', 'editEmit']);
+
+function editItem(id) {
+  emits('editEmit', id);
+}
+
+function deleteItem(id) {
+  emits('removeEmit', id);
+}
 </script>
 <template>
   <li class='grocery-bud-item'>
     <span class="grocery-bud-item__text">{{ item.title }}</span>
     <div class="grocery-bud-item__actions">
-      <font-awesome-icon class="grocery-bud-item__edit" icon="fa-solid fa-pen-to-square"/>
-      <font-awesome-icon class="grocery-bud-item__delete" icon="fa-solid fa-trash-can"/>
+      <font-awesome-icon @click="editItem(item.id)" class="grocery-bud-item__edit" icon="fa-solid fa-pen-to-square"/>
+      <font-awesome-icon @click="deleteItem(item.id)" class="grocery-bud-item__delete" icon="fa-solid fa-trash-can"/>
     </div>
   </li>
 </template>
@@ -28,10 +37,12 @@ const props = defineProps({
   }
   &__edit {
     color: var(--success);
+    cursor: pointer;
   }
   &__delete {
     margin-left: 1rem;
     color: var(--error);
+    cursor: pointer;
   }
 }
 </style>

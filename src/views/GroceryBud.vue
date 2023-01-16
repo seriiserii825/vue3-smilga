@@ -5,31 +5,53 @@ import GroceryBudItem from "@/components/grocery-bud/GroceryBudItem.vue";
 import {ref} from "@vue/reactivity";
 import {computed} from "@vue/runtime-core";
 
+const mode_submit = ref(true);
 const search = ref('');
 const message = ref('');
 const message_type = ref('');
 const items = ref([]);
+const item_edited_id = ref(null);
 
 function onSubmit() {
   if (search.value.length) {
-    const id = Date.now();
-    if (items.value.length) {
-      const idx = items.value.findIndex(item => item.title === search.value);
-      if (idx !== -1) {
-        errorMessage();
+    if (item_edited_id.value) {
+      const idx = items.value.findIndex(item => item.id === item_edited_id.value);
+      console.log(idx, 'idx')
+      items.value[idx].title = search.value;
+      search.value = '';
+      item_edited_id.value = null;
+      mode_submit.value = true;
+    } else {
+      const id = Date.now();
+      if (items.value.length) {
+        const idx = items.value.findIndex(item => item.title === search.value);
+        if (idx !== -1) {
+          errorMessage();
+        } else {
+          items.value.push({id: id, title: search.value});
+          successMessage();
+          resetInput();
+        }
       } else {
         items.value.push({id: id, title: search.value});
         successMessage();
         resetInput();
       }
-    } else {
-      items.value.push({id: id, title: search.value});
-      successMessage();
-      resetInput();
     }
   } else {
     emptyMessage();
   }
+}
+
+function removeItem(id) {
+  items.value = items.value.filter(item => item.id !== id);
+}
+
+function editItem(id) {
+  item_edited_id.value = id;
+  mode_submit.value = false;
+  const item = items.value.filter(item => item.id === id);
+  search.value = item[0].title;
 }
 
 function clearItems() {
@@ -83,10 +105,18 @@ const messageClass = computed(() => {
         <h2 class="grocery-bud__title">Grocery Bud</h2>
         <div class="grocery-bud__form">
           <Input v-model:value="search" placeholder="e.g. eggs"/>
-          <Button label="Submit" @click="onSubmit"/>
+          <Button
+              :label="mode_submit ? 'Submit' : 'Edit'"
+              @click="onSubmit"
+          />
         </div>
         <ul v-if="items.length" class="grocery-bud__list">
-          <GroceryBudItem v-for="(item) in items" :key="item.id" :item="item"/>
+          <GroceryBudItem
+              v-for="(item) in items"
+              :key="item.id" :item="item"
+              @remove-emit="removeItem"
+              @edit-emit="editItem"
+          />
         </ul>
         <footer class="grocery-bud__footer">
           <Button @click="clearItems" label="Clear Items" :outline="true" color="error"/>
@@ -97,7 +127,9 @@ const messageClass = computed(() => {
 </template>
 <style lang="scss" scoped>
 .grocery-bud {
-  padding: 8rem 0;
+  padding: 16rem 0;
+  min-height: 100vh;
+  background: #fadafa;
   &__body {
     position: relative;
     margin: 0 auto;
