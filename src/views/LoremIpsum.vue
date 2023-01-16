@@ -5,6 +5,7 @@ import {items} from "../data/lorem-ipsum";
 import {computed, watch} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
+import colors from "../data/colors";
 
 const count = ref(3);
 const max_count = items.length;
@@ -41,16 +42,16 @@ function filterFooterHandler(value) {
 }
 
 watch(count, () => {
-  if(count.value < 1){
+  if (count.value < 1) {
     count.value = 1;
   }
-  if(count.value > max_count){
+  if (count.value > max_count) {
     count.value = max_count;
   }
 });
 </script>
 <template>
-  <div class='lorem-ipsum'>
+  <div class='lorem-ipsum' :style="{background: colors.lorem}">
     <div class="container">
       <section class="lorem-ipsum__wrap">
         <aside class="lorem-ipsum__sidebar">

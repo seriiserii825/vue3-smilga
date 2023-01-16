@@ -3,6 +3,7 @@ import ColorGeneratorHeader from "../components/color-generator/ColorGeneratorHe
 import ColorGeneratorBody from "../components/color-generator/ColorGeneratorBody.vue";
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
+import bg_colors from "../data/colors";
 
 const loading = ref(false);
 
@@ -18,7 +19,7 @@ function emitColors(value) {
 }
 </script>
 <template>
-  <div class='color-generator'>
+  <div class='color-generator' :style="{background: bg_colors.color}">
     <div class="container">
       <ColorGeneratorHeader :color="color" @emitColors="emitColors"/>
       <Preloader v-if="loading === true"/>

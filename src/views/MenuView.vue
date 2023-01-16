@@ -1,30 +1,32 @@
 <template>
-	<div class="menu-view">
-		<div class="container">
-			<MenuFilter @filter="handleFilter" :categories="categories" />
-			<MenuItems :items="items" />
-		</div>
-	</div>
+  <div class="menu-view" :style="{background: colors.menu }">
+    <div class="container">
+      <MenuFilter @filter="handleFilter" :categories="categories"/>
+      <MenuItems :items="items"/>
+    </div>
+  </div>
 </template>
 <script setup>
-	import menu from '@/data/menu.js';
-	import MenuFilter from '@/components/menu/MenuFilter.vue';
-	import MenuItems from '@/components/menu/MenuItems.vue';
-	import { computed, ref } from '@vue/runtime-core';
-	let categories = menu.map((item) => item.category);
-	categories = ['all', ...new Set(categories)];
+import menu from '@/data/menu.js';
+import colors from "@/data/colors";
+import MenuFilter from '@/components/menu/MenuFilter.vue';
+import MenuItems from '@/components/menu/MenuItems.vue';
+import {computed, ref} from '@vue/runtime-core';
 
-	let items = ref(menu);
+let categories = menu.map((item) => item.category);
+categories = ['all', ...new Set(categories)];
 
-	function handleFilter(category) {
-		if (category === 'all') {
-			items.value = menu;
-		} else {
-			items.value = menu.filter((item) => {
-				return item.category === category;
-			});
-		}
-	}
+let items = ref(menu);
+
+function handleFilter(category) {
+  if (category === 'all') {
+    items.value = menu;
+  } else {
+    items.value = menu.filter((item) => {
+      return item.category === category;
+    });
+  }
+}
 </script>
 
 <style lang="scss">

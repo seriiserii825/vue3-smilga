@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button.vue";
 import GroceryBudItem from "@/components/grocery-bud/GroceryBudItem.vue";
 import {ref} from "@vue/reactivity";
 import {computed} from "@vue/runtime-core";
+import colors from "../data/colors";
 
 const mode_submit = ref(true);
 const search = ref('');
@@ -98,7 +99,7 @@ const messageClass = computed(() => {
 
 </script>
 <template>
-  <div class='grocery-bud'>
+  <div class='grocery-bud' :style="{background: colors.grocery}">
     <div class="container">
       <div class="grocery-bud__body">
         <div v-if="message" :class="`grocery-bud__info ${messageClass}`">{{ message }}</div>
