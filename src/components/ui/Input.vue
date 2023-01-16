@@ -13,7 +13,7 @@ const props = defineProps({
     required: false,
   },
   id: {
-    type: [String, Number],
+    type: String,
     required: false,
   },
   behaviour: {
@@ -33,7 +33,7 @@ const props = defineProps({
     required: false
   },
   value: {
-    type: String,
+    type: [String, Number],
     required: false
   }
 });
