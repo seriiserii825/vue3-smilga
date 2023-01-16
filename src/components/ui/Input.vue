@@ -44,16 +44,17 @@ const propsValue = computed(() => {
   return props.value;
 });
 
-const emits = defineEmits(['change']);
+const emits = defineEmits(['update:value']);
 
-function changeHandler(value) {
+function changeHandler(e) {
+  const value = e.target.value;
   if (props.min && value < 1) {
-    emits('change', value);
+    emits('update:value', value);
   }
   if (props.max && value > props.max) {
-    emits('change', value);
+    emits('update:value', value);
   }
-  emits('change', value);
+  emits('update:value', value);
 }
 </script>
 <template>
@@ -70,7 +71,7 @@ function changeHandler(value) {
         :max="max ? max : null"
         :min="min ? min : null"
         :value="propsValue"
-        @change="changeHandler($event.target.value)"
+        @change="changeHandler"
     />
     <p v-if="error" class="input__message input__message--error">
       {{ error }}

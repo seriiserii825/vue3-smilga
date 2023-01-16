@@ -9,12 +9,6 @@ const search = ref('');
 const message = ref('');
 const message_type = ref('');
 const items = ref([]);
-const set_input = ref(false);
-const input_value = ref('');
-
-function searchHandler(value) {
-  search.value = value;
-}
 
 function onSubmit() {
   if (search.value.length) {
@@ -38,13 +32,12 @@ function onSubmit() {
   }
 }
 
-function clearItems(){
+function clearItems() {
   items.value = [];
 }
 
 function resetInput() {
-  set_input.value = true;
-  input_value.value = ' ';
+  search.value = '';
 }
 
 
@@ -89,7 +82,7 @@ const messageClass = computed(() => {
         <div v-if="message" :class="`grocery-bud__info ${messageClass}`">{{ message }}</div>
         <h2 class="grocery-bud__title">Grocery Bud</h2>
         <div class="grocery-bud__form">
-          <Input :value="set_input ? input_value : null" @change="searchHandler" placeholder="e.g. eggs"/>
+          <Input v-model:value="search" placeholder="e.g. eggs"/>
           <Button label="Submit" @click="onSubmit"/>
         </div>
         <ul v-if="items.length" class="grocery-bud__list">
