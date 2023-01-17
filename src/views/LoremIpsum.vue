@@ -6,6 +6,11 @@ import {computed, watch} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
 import colors from "../data/colors";
+import {shadeColor} from "../utilities/color-converters";
+import {onMounted} from "vue";
+import {useColorStore} from "../stores/ColorStore";
+const colorStore = useColorStore();
+const {setColor} = colorStore;
 
 const count = ref(3);
 const max_count = items.length;
@@ -49,6 +54,11 @@ watch(count, () => {
     count.value = max_count;
   }
 });
+
+onMounted(() => {
+  const darken_bg = shadeColor(colors.lorem, -40);
+  setColor(darken_bg);
+})
 </script>
 <template>
   <div class='lorem-ipsum' :style="{background: colors.lorem}">

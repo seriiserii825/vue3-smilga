@@ -6,12 +6,19 @@ import {ref} from "@vue/reactivity";
 import {computed} from "@vue/runtime-core";
 import colors from "../data/colors";
 
+import {useColorStore} from "../stores/ColorStore";
+import {onMounted} from "vue";
+import {shadeColor} from "../utilities/color-converters";
+const colorStore = useColorStore();
+const {setColor} = colorStore;
+
 const mode_submit = ref(true);
 const search = ref('');
 const message = ref('');
 const message_type = ref('');
 const items = ref([]);
 const item_edited_id = ref(null);
+
 
 function onSubmit() {
   if (search.value.length) {
@@ -97,6 +104,10 @@ const messageClass = computed(() => {
   }
 });
 
+onMounted(() => {
+  const darken_bg = shadeColor(colors.grocery, -40);
+  setColor(darken_bg);
+})
 </script>
 <template>
   <div class='grocery-bud' :style="{background: colors.grocery}">

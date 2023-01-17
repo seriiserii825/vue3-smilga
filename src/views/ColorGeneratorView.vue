@@ -4,6 +4,11 @@ import ColorGeneratorBody from "../components/color-generator/ColorGeneratorBody
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
 import bg_colors from "../data/colors";
+import {useColorStore} from "../stores/ColorStore";
+import {onMounted} from "vue";
+import {shadeColor} from "../utilities/color-converters";
+const colorStore = useColorStore();
+const {setColor} = colorStore;
 
 const loading = ref(false);
 
@@ -17,6 +22,11 @@ function emitColors(value) {
     loading.value = false;
   }, 500);
 }
+
+onMounted(() => {
+  const darken_bg = shadeColor(bg_colors.color, -40);
+  setColor(darken_bg);
+})
 </script>
 <template>
   <div class='color-generator' :style="{background: bg_colors.color}">
