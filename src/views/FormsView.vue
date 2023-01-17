@@ -32,6 +32,7 @@ const selected_footballs_clubs = ref('Arsenal');
 <template>
   <SectionHeader title="Form inputs"/>
   <Form title="Input example">
+    <SectionHeader title="Input"/>
     <div class="form__row">
       <div class="form__group">
         <Input label="Name"/>
@@ -48,6 +49,7 @@ const selected_footballs_clubs = ref('Arsenal');
         <Input placeholder="Surname(Error)" behaviour="error" error="Field is required"/>
       </div>
     </div>
+    <SectionHeader title="Checkbox"/>
     <div class="form__row">
       <div class="form__group">
         <Checkbox
@@ -67,6 +69,7 @@ const selected_footballs_clubs = ref('Arsenal');
         <div>{{ selected_fruits }}</div>
       </div>
     </div>
+    <SectionHeader title="Radio"/>
     <div class="form__row">
       <div class="form__group">
         <h4 class="mb2">{{ selected_footballs_clubs }}</h4>
