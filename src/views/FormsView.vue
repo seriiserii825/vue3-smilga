@@ -5,6 +5,7 @@ import Form from "@/components/ui/Form.vue";
 import Checkbox from "@/components/ui/Checkbox.vue";
 import {ref} from "vue";
 import CheckboxGroup from "../components/ui/CheckboxGroup.vue";
+import Radio from "../components/ui/Radio.vue";
 
 const checkbox_is_active = ref(true);
 
@@ -17,6 +18,15 @@ const fruits = ref([
 ]);
 
 const selected_fruits = ref([3]);
+
+const footballs_clubs = ref([
+  {id: 'f1', title: "Liverpool"},
+  {id: 'f2', title: "Manchester United"},
+  {id: 'f3', title: "Chelsea"},
+  {id: 'f4', title: "Arsenal"}
+]);
+
+const selected_footballs_clubs = ref('Arsenal');
 
 </script>
 <template>
@@ -55,6 +65,19 @@ const selected_fruits = ref([3]);
             v-model:value="selected_fruits"
         />
         <div>{{ selected_fruits }}</div>
+      </div>
+    </div>
+    <div class="form__row">
+      <div class="form__group">
+        <h4 class="mb2">{{ selected_footballs_clubs }}</h4>
+        <Radio v-for="item in footballs_clubs"
+               :key="item.id"
+               :id="item.id"
+               :value="item.title"
+               :label="item.title"
+               name="football_clubs"
+               v-model:radio="selected_footballs_clubs"
+        />
       </div>
     </div>
   </Form>
