@@ -23,7 +23,6 @@
 	const props = defineProps({
 		items: Array,
 	});
-	console.log(props.items, 'props.items');
 
 	const orderBy = ref('all');
 

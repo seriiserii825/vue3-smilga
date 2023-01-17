@@ -10,13 +10,14 @@
 import {ref} from '@vue/runtime-core';
 import {onMounted} from "vue";
 import {useColorStore} from "../stores/ColorStore";
+
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 import menu from '@/data/menu.js';
 import colors from "@/data/colors";
 import MenuFilter from '@/components/menu/MenuFilter.vue';
 import MenuItems from '@/components/menu/MenuItems.vue';
-import {shadeColor} from "../utilities/color-converters";
+import useBackground from "@/hooks/useBackground";
 
 let categories = menu.map((item) => item.category);
 categories = ['all', ...new Set(categories)];
@@ -34,7 +35,7 @@ function handleFilter(category) {
 }
 
 onMounted(() => {
-  const darken_bg = shadeColor(colors.menu, -40);
+  const {darken_bg} = useBackground(colors.menu, -40);
   setColor(darken_bg);
 })
 </script>

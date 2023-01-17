@@ -6,7 +6,8 @@ import Preloader from "../components/ui/Preloader.vue";
 import bg_colors from "../data/colors";
 import {useColorStore} from "../stores/ColorStore";
 import {onMounted} from "vue";
-import {shadeColor} from "../utilities/color-converters";
+import useBackground from "@/hooks/useBackground";
+
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 
@@ -24,7 +25,7 @@ function emitColors(value) {
 }
 
 onMounted(() => {
-  const darken_bg = shadeColor(bg_colors.color, -40);
+  const {darken_bg} = useBackground(bg_colors.color, -40);
   setColor(darken_bg);
 })
 </script>
