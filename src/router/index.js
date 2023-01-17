@@ -33,9 +33,9 @@ const router = createRouter({
             },
         },
         {
-            path: '/ui/inputs',
-            name: 'inputs',
-            component: () => import('../views/InputsView.vue'),
+            path: '/ui/forms',
+            name: 'forms',
+            component: () => import('../views/FormsView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },

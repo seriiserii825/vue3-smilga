@@ -3,6 +3,9 @@ import SectionHeader from "@/components/globals/SectionHeader.vue";
 import Input from "@/components/ui/Input.vue";
 import Form from "@/components/ui/Form.vue";
 import Checkbox from "@/components/ui/Checkbox.vue";
+import {ref} from "vue";
+
+const checkbox_is_active = ref(true);
 </script>
 <template>
   <SectionHeader title="Form inputs"/>
@@ -25,7 +28,13 @@ import Checkbox from "@/components/ui/Checkbox.vue";
     </div>
     <div class="form__row">
       <div class="form__group">
-        <Checkbox value="checkbox"/>
+        <Checkbox
+            value="checkbox"
+            label="Checkbox"
+            name="checkbox"
+            id="1"
+            v-model:checked="checkbox_is_active"/>
+        <pre>{{ checkbox_is_active }}</pre>
       </div>
     </div>
   </Form>

@@ -1,32 +1,45 @@
 <script setup>
-import {ref} from '@vue/reactivity';
+const emits = defineEmits(['update:checked']);
 
 const props = defineProps({
   label: {
     type: String,
     default: 'Checkbox'
   },
-  value: {
+  name: {
+    type: String,
+    default: 'checkbox'
+  },
+  id: {
     type: String,
     required: true
   },
-  default: {
-    type: Boolean,
+  value: {
+    type: String,
     required: false
   },
+  checked: {
+    type: Boolean,
+    required: true
+  },
 })
-const emits = defineEmits(['checkboxHandler']);
-const checked = ref(props.default ? props.default : false);
 
-function toggleCheckbox() {
-  emits('checkboxHandler', checked.value);
+function toggleCheckbox(event) {
+  emits('update:checked', event.target.checked);
 }
 
 </script>
 <template>
   <div class='checkbox prevent-select'>
-    <input type="checkbox" :id="value" v-model="checked" @change="toggleCheckbox">
-    <label :for="value">{{ label }}</label>
+    <input
+        :name="name"
+        type="checkbox"
+        :id="id"
+        :value="value"
+        :checked="checked"
+        @input="toggleCheckbox($event)"
+    >
+    <label :for="id">{{ label }}</label>
   </div>
 </template>
 <style lang="scss">
