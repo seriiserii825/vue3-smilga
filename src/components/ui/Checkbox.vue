@@ -1,5 +1,5 @@
 <script setup>
-const emits = defineEmits(['update:checked']);
+const emits = defineEmits(['update:checked', 'updateValue']);
 
 const props = defineProps({
   label: {
@@ -11,7 +11,7 @@ const props = defineProps({
     default: 'checkbox'
   },
   id: {
-    type: String,
+    type: [String, Number],
     required: true
   },
   value: {
@@ -22,10 +22,18 @@ const props = defineProps({
     type: Boolean,
     required: true
   },
+  group: {
+    type: Boolean,
+    default: false
+  }
 })
 
 function toggleCheckbox(event) {
-  emits('update:checked', event.target.checked);
+  if (props.group) {
+    emits('updateValue', {id: props.id, checked: event.target.checked});
+  } else {
+    emits('update:checked', event.target.checked);
+  }
 }
 
 </script>

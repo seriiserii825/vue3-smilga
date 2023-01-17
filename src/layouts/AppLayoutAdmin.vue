@@ -7,9 +7,6 @@ import {storeToRefs} from "pinia";
 const code_store = useCodePopupStore();
 const {is_visible_popup, use_value, use_code} = storeToRefs(code_store);
 
-console.log(use_code, 'use_code from layout');
-console.log(is_visible_popup, 'is_visible_popup')
-
 </script>
 
 <template>
