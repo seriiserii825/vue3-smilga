@@ -20,6 +20,7 @@ const {is_visible_popup, use_value, use_code} = storeToRefs(code_store);
           <RouterLink to="/admin">Admin</RouterLink>
         </h2>
         <MenuDropdown
+            label="Forms"
             icon="fa-user-secret"
             :items="[
 						{ title: 'Buttons', url: '/ui/buttons' },

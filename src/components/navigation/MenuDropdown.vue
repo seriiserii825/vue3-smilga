@@ -2,6 +2,10 @@
 	import { ref } from '@vue/reactivity';
 
 	const props = defineProps({
+    label: {
+      type: String,
+      required: true,
+    },
 		items: {
 			type: Array,
 			required: true,
@@ -25,7 +29,7 @@
 			<span class="menu-dropdown__icon"
 				><font-awesome-icon :icon="`fa-solid ${icon}`"
 			/></span>
-			<span>UI</span>
+			<span>{{ label }}</span>
 		</header>
 		<ul v-if="isVisibleList" class="menu-dropdown__list">
 			<li v-for="{ title, url } in items" :key="title">
