@@ -57,6 +57,14 @@ const router = createRouter({
             },
         },
         {
+            path: '/ui/input',
+            name: 'input',
+            component: () => import('../views/InputView.vue'),
+            meta: {
+                layout: AppLayoutsEnum.admin,
+            },
+        },
+        {
             path: '/lorem-ipsum',
             name: 'lorem-ipsum',
             component: () => import('../views/LoremIpsum.vue'),
