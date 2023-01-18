@@ -49,6 +49,14 @@ const router = createRouter({
             },
         },
         {
+            path: '/ui/radio',
+            name: 'radio',
+            component: () => import('../views/RadioView.vue'),
+            meta: {
+                layout: AppLayoutsEnum.admin,
+            },
+        },
+        {
             path: '/lorem-ipsum',
             name: 'lorem-ipsum',
             component: () => import('../views/LoremIpsum.vue'),

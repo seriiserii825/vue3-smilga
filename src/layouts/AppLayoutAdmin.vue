@@ -25,6 +25,7 @@ const {is_visible_popup, use_value, use_code} = storeToRefs(code_store);
             :items="[
 						{ title: 'Buttons', url: '/ui/buttons' },
 						{ title: 'Checkbox', url: '/ui/checkbox' },
+						{ title: 'Radio', url: '/ui/radio' },
 						{ title: 'Forms', url: '/ui/forms' },
 					]"
         />
