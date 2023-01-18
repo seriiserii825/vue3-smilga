@@ -24,6 +24,7 @@ const {is_visible_popup, use_value, use_code} = storeToRefs(code_store);
             icon="fa-user-secret"
             :items="[
 						{ title: 'Buttons', url: '/ui/buttons' },
+						{ title: 'Checkbox', url: '/ui/checkbox' },
 						{ title: 'Forms', url: '/ui/forms' },
 					]"
         />

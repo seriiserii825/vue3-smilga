@@ -41,6 +41,14 @@ const router = createRouter({
             },
         },
         {
+            path: '/ui/checkbox',
+            name: 'checkbox',
+            component: () => import('../views/CheckboxView.vue'),
+            meta: {
+                layout: AppLayoutsEnum.admin,
+            },
+        },
+        {
             path: '/lorem-ipsum',
             name: 'lorem-ipsum',
             component: () => import('../views/LoremIpsum.vue'),

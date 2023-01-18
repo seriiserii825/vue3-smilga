@@ -1,12 +1,18 @@
 <script setup>
 import SectionHeader from '@/components/globals/SectionHeader.vue';
 import Button from "@/components/ui/Button.vue";
+import {onMounted} from "vue";
+import usePrism from "../hooks/usePrism";
 
 const btn_code = `
       <Button label="success" color="success"/>
       <Button :outline="true" label="contrast" color="contrast"/>
       <Button :outline="true" color="contrast" icon="fa-user"/>
 `;
+
+onMounted(() => {
+  usePrism();
+})
 </script>
 <template>
   <SectionHeader title="Buttons"/>
@@ -56,9 +62,7 @@ const btn_code = `
   <SectionHeader title="How to use"/>
 
   <div>
-    <pre>
-      <code>{{ btn_code }}</code>
-    </pre>
+    <pre><code class="language-html">{{ btn_code }}</code></pre>
   </div>
 
 </template>
