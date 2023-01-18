@@ -30,9 +30,10 @@ const checkbox_items = ref([
 
 const selected_checkbox_items = ref([1, 2]);
 
-// const filterByCheckbox = (id) => {
-//   return selected_checkbox_items.value.includes(id);
-// };
+const filterByCheckbox = (title) => {
+  const id = checkbox_items.value.find((item) => item.title === title).id;
+  return selected_checkbox_items.value.includes(id);
+};
 
 let filtered = computed(() => {
   loading.value = true;
@@ -82,10 +83,10 @@ onMounted(() => {
           <div v-else>
             <ul class="lorem-ipsum__list" v-if="filtered && filtered.length">
               <li v-for="({id, title, subtitle, text, date}) in filtered" :key="id">
-                <h2 v-if="filter_title !== false">{{ title }}</h2>
-                <h3 v-if="filter_subtitle !== false">{{ subtitle }}</h3>
-                <p v-if="filter_text !== false">{{ text }}</p>
-                <footer v-if="filter_footer !== false">Date: <strong>({{ date }})</strong></footer>
+                <h2 v-if="filterByCheckbox('Use title')">{{ title }}</h2>
+                <h3 v-if="filterByCheckbox('Use subtitle')">{{ subtitle }}</h3>
+                <p v-if="filterByCheckbox('Use text')">{{ text }}</p>
+                <footer v-if="filterByCheckbox('Use footer')">Date: <strong>({{ date }})</strong></footer>
               </li>
             </ul>
           </div>
