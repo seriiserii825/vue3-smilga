@@ -9,6 +9,7 @@ import colors from "../data/colors";
 import {useColorStore} from "../stores/ColorStore";
 import {onMounted} from "vue";
 import {shadeColor} from "../utilities/color-converters";
+import useBackground from "../hooks/useBackground";
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 
@@ -18,6 +19,7 @@ const message = ref('');
 const message_type = ref('');
 const items = ref([]);
 const item_edited_id = ref(null);
+const bg_color = ref('#f5f5f5');
 
 
 function onSubmit() {
@@ -105,12 +107,12 @@ const messageClass = computed(() => {
 });
 
 onMounted(() => {
-  const darken_bg = shadeColor(colors.grocery, -40);
-  setColor(darken_bg);
+  const use_bg = useBackground('grocery', -50);
+  bg_color.value = use_bg.color_from_file;
 })
 </script>
 <template>
-  <div class='grocery-bud' :style="{background: colors.grocery}">
+  <div class='grocery-bud' :style="{background: bg_color}">
     <div class="container">
       <div class="grocery-bud__body">
         <div v-if="message" :class="`grocery-bud__info ${messageClass}`">{{ message }}</div>

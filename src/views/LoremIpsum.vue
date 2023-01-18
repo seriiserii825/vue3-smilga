@@ -4,21 +4,17 @@ import {items} from "../data/lorem-ipsum";
 import {computed, watch} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
-import colors from "../data/colors";
-import {shadeColor} from "../utilities/color-converters";
 import {onMounted} from "vue";
 import {useColorStore} from "../stores/ColorStore";
 import CheckboxGroup from "../components/ui/CheckboxGroup.vue";
+import useBackground from "../hooks/useBackground";
 
 const colorStore = useColorStore();
-const {setColor} = colorStore;
+
+const bg_color = ref('#f5f5f5');
 
 const count = ref(3);
 const max_count = items.length;
-const filter_title = ref(true);
-const filter_subtitle = ref(true);
-const filter_text = ref(false);
-const filter_footer = ref(false);
 const loading = ref(false);
 
 const checkbox_items = ref([
@@ -55,12 +51,12 @@ watch(count, () => {
 });
 
 onMounted(() => {
-  const darken_bg = shadeColor(colors.lorem, -40);
-  setColor(darken_bg);
+  const use_bg = useBackground('lorem', -40);
+  bg_color.value = use_bg.color_from_file;
 })
 </script>
 <template>
-  <div class='lorem-ipsum' :style="{background: colors.lorem}">
+  <div class='lorem-ipsum' :style="{background: bg_color}">
     <div class="container">
       <section class="lorem-ipsum__wrap">
         <aside class="lorem-ipsum__sidebar">

@@ -3,16 +3,11 @@ import ColorGeneratorHeader from "../components/color-generator/ColorGeneratorHe
 import ColorGeneratorBody from "../components/color-generator/ColorGeneratorBody.vue";
 import {ref} from "@vue/reactivity";
 import Preloader from "../components/ui/Preloader.vue";
-import bg_colors from "../data/colors";
-import {useColorStore} from "../stores/ColorStore";
 import {onMounted} from "vue";
 import useBackground from "@/hooks/useBackground";
 
-const colorStore = useColorStore();
-const {setColor} = colorStore;
-
 const loading = ref(false);
-
+const bg_color = ref('#f5f5f5');
 const colors = ref([]);
 const color = ref('#f15025');
 
@@ -23,14 +18,13 @@ function emitColors(value) {
     loading.value = false;
   }, 500);
 }
-
 onMounted(() => {
-  const {darken_bg} = useBackground(bg_colors.color, -40);
-  setColor(darken_bg);
+  const use_bg = useBackground('color', -50);
+  bg_color.value = use_bg.color_from_file;
 })
 </script>
 <template>
-  <div class='color-generator' :style="{background: bg_colors.color}">
+  <div class='color-generator' :style="{background: bg_color}">
     <div class="container">
       <ColorGeneratorHeader :color="color" @emitColors="emitColors"/>
       <Preloader v-if="loading === true"/>
