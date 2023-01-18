@@ -1,6 +1,5 @@
 <script setup>
 import Input from "../components/ui/Input.vue";
-import Checkbox from "../components/ui/Checkbox.vue";
 import {items} from "../data/lorem-ipsum";
 import {computed, watch} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
@@ -9,6 +8,8 @@ import colors from "../data/colors";
 import {shadeColor} from "../utilities/color-converters";
 import {onMounted} from "vue";
 import {useColorStore} from "../stores/ColorStore";
+import CheckboxGroup from "../components/ui/CheckboxGroup.vue";
+
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 
@@ -20,6 +21,19 @@ const filter_text = ref(false);
 const filter_footer = ref(false);
 const loading = ref(false);
 
+const checkbox_items = ref([
+  {id: 1, title: "Use title"},
+  {id: 2, title: "Use subtitle"},
+  {id: 3, title: "Use text"},
+  {id: 4, title: "Use footer"},
+]);
+
+const selected_checkbox_items = ref([1, 2]);
+
+// const filterByCheckbox = (id) => {
+//   return selected_checkbox_items.value.includes(id);
+// };
+
 let filtered = computed(() => {
   loading.value = true;
   let result = items.slice(0, count.value);
@@ -29,22 +43,6 @@ let filtered = computed(() => {
   return result;
 })
 
-
-function filterTitleHandler(value) {
-  filter_title.value = value;
-}
-
-function filterSubtitleHandler(value) {
-  filter_subtitle.value = value;
-}
-
-function filterTextHandler(value) {
-  filter_text.value = value;
-}
-
-function filterFooterHandler(value) {
-  filter_footer.value = value;
-}
 
 watch(count, () => {
   if (count.value < 1) {
@@ -71,10 +69,12 @@ onMounted(() => {
             <Input type="number" v-model:value="count" :max="max_count" :min="1"/>
           </header>
           <div class="lorem-ipsum__filter">
-            <Checkbox @checkbox-handler="filterTitleHandler" label="Use title" value="title" :default="true"/>
-            <Checkbox @checkbox-handler="filterSubtitleHandler" label="Use subtitle" value="subtitle" :default="true"/>
-            <Checkbox @checkbox-handler="filterTextHandler" label="Use text" value="text"/>
-            <Checkbox @checkbox-handler="filterFooterHandler" label="Use footer" value="footer"/>
+            <div>{{ selected_checkbox_items }}</div>
+            <CheckboxGroup
+                :options="checkbox_items"
+                name="checkbox"
+                v-model:value="selected_checkbox_items"
+            />
           </div>
         </aside>
         <main class="lorem-ipsum__content">
