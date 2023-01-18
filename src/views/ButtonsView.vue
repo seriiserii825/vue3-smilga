@@ -1,6 +1,12 @@
 <script setup>
 import SectionHeader from '@/components/globals/SectionHeader.vue';
 import Button from "@/components/ui/Button.vue";
+
+const btn_code = `
+      <Button label="success" color="success"/>
+      <Button :outline="true" label="contrast" color="contrast"/>
+      <Button :outline="true" color="contrast" icon="fa-user"/>
+`;
 </script>
 <template>
   <SectionHeader title="Buttons"/>
@@ -46,8 +52,16 @@ import Button from "@/components/ui/Button.vue";
       <Button :outline="true" color="success" icon="fa-circle-xmark"/>
     </li>
   </ul>
-</template>
+  <br><br>
+  <SectionHeader title="How to use"/>
 
+  <div>
+    <pre>
+      <code>{{ btn_code }}</code>
+    </pre>
+  </div>
+
+</template>
 <style lang="scss" scoped>
 .buttons {
   display: flex;
