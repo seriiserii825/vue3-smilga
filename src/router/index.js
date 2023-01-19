@@ -14,12 +14,12 @@ const router = createRouter({
         {
             path: '/menu',
             name: 'menu',
-            component: () => import('../views/MenuView.vue'),
+            component: () => import('../views/projects/MenuView.vue'),
         },
         {
             path: '/admin',
             name: 'admin',
-            component: () => import('../views/AdminView.vue'),
+            component: () => import('../views/admin/AdminView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -27,7 +27,7 @@ const router = createRouter({
         {
             path: '/ui/buttons',
             name: 'button',
-            component: () => import('../views/ButtonsView.vue'),
+            component: () => import('../views/admin/ui/ButtonsView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -35,7 +35,7 @@ const router = createRouter({
         {
             path: '/ui/forms',
             name: 'forms',
-            component: () => import('../views/FormsView.vue'),
+            component: () => import('../views/admin/ui/FormsView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -43,7 +43,7 @@ const router = createRouter({
         {
             path: '/ui/checkbox',
             name: 'checkbox',
-            component: () => import('../views/CheckboxView.vue'),
+            component: () => import('../views/admin/ui/CheckboxView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -51,7 +51,7 @@ const router = createRouter({
         {
             path: '/ui/radio',
             name: 'radio',
-            component: () => import('../views/RadioView.vue'),
+            component: () => import('../views/admin/ui/RadioView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -59,7 +59,7 @@ const router = createRouter({
         {
             path: '/ui/select',
             name: 'select',
-            component: () => import('../views/SelectView.vue'),
+            component: () => import('../views/admin/ui/SelectView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -67,7 +67,7 @@ const router = createRouter({
         {
             path: '/ui/input',
             name: 'input',
-            component: () => import('../views/InputView.vue'),
+            component: () => import('../views/admin/ui/InputView.vue'),
             meta: {
                 layout: AppLayoutsEnum.admin,
             },
@@ -75,17 +75,17 @@ const router = createRouter({
         {
             path: '/lorem-ipsum',
             name: 'lorem-ipsum',
-            component: () => import('../views/LoremIpsum.vue'),
+            component: () => import('../views/projects/LoremIpsum.vue'),
         },
         {
             path: '/color-generator',
             name: 'color-generator',
-            component: () => import('../views/ColorGeneratorView.vue'),
+            component: () => import('../views/projects/ColorGeneratorView.vue'),
         },
         {
             path: '/grocery-bud',
             name: 'grocery-bud',
-            component: () => import('../views/GroceryBud.vue'),
+            component: () => import('../views/projects/GroceryBud.vue'),
         },
     ],
 });

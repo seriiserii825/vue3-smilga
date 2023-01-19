@@ -1,9 +1,9 @@
 <script setup>
-import SectionHeader from "../components/globals/SectionHeader.vue";
-import PreCode from "../components/ui/PreCode.vue";
+import SectionHeader from "../../../components/globals/SectionHeader.vue";
+import PreCode from "../../../components/ui/PreCode.vue";
 import {onUnmounted, ref} from "vue";
-import usePrism from "../hooks/usePrism";
-import Radio from "../components/ui/Radio.vue";
+import usePrism from "../../../hooks/usePrism";
+import Radio from "../../../components/ui/Radio.vue";
 
 
 const footballs_clubs = ref([

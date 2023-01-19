@@ -1,8 +1,8 @@
 <script setup="">
-import ColorGeneratorHeader from "../components/color-generator/ColorGeneratorHeader.vue";
-import ColorGeneratorBody from "../components/color-generator/ColorGeneratorBody.vue";
+import ColorGeneratorHeader from "../../components/color-generator/ColorGeneratorHeader.vue";
+import ColorGeneratorBody from "../../components/color-generator/ColorGeneratorBody.vue";
 import {ref} from "@vue/reactivity";
-import Preloader from "../components/ui/Preloader.vue";
+import Preloader from "../../components/ui/Preloader.vue";
 import {onMounted} from "vue";
 import useBackground from "@/hooks/useBackground";
 

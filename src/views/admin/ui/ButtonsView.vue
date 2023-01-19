@@ -2,7 +2,7 @@
 import SectionHeader from '@/components/globals/SectionHeader.vue';
 import Button from "@/components/ui/Button.vue";
 import {onMounted} from "vue";
-import usePrism from "../hooks/usePrism";
+import usePrism from "../../../hooks/usePrism";
 
 const btn_code = `
       <Button label="success" color="success"/>

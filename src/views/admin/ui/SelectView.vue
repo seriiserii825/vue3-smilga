@@ -1,9 +1,9 @@
 <script setup>
-import SectionHeader from "../components/globals/SectionHeader.vue";
-import SelectComponent from "../components/ui/SelectComponent.vue";
+import SectionHeader from "../../../components/globals/SectionHeader.vue";
+import SelectComponent from "../../../components/ui/SelectComponent.vue";
 import {ref, onMounted} from "vue";
-import PreCode from "../components/ui/PreCode.vue";
-import usePrism from "../hooks/usePrism";
+import PreCode from "../../../components/ui/PreCode.vue";
+import usePrism from "../../../hooks/usePrism";
 
 const options = [
   {id: 1, title: "BMW"},

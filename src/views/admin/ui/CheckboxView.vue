@@ -1,10 +1,10 @@
 <script setup>
-import SectionHeader from "../components/globals/SectionHeader.vue";
+import SectionHeader from "../../../components/globals/SectionHeader.vue";
 import {onMounted, ref} from "vue";
-import usePrism from "../hooks/usePrism";
-import PreCode from "../components/ui/PreCode.vue";
-import Checkbox from "../components/ui/Checkbox.vue";
-import CheckboxGroup from "../components/ui/CheckboxGroup.vue";
+import usePrism from "../../../hooks/usePrism";
+import PreCode from "../../../components/ui/PreCode.vue";
+import Checkbox from "../../../components/ui/Checkbox.vue";
+import CheckboxGroup from "../../../components/ui/CheckboxGroup.vue";
 
 const checkbox_is_active = ref(false);
 

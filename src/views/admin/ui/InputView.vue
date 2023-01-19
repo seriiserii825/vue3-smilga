@@ -4,11 +4,11 @@ import {email, helpers, minLength, required, sameAs} from '@vuelidate/validators
 import {computed} from "@vue/runtime-core";
 import {onMounted, ref} from "vue";
 
-import SectionHeader from "../components/globals/SectionHeader.vue";
-import Input from "../components/ui/Input.vue";
-import Button from "../components/ui/Button.vue";
-import PreCode from "../components/ui/PreCode.vue";
-import usePrism from "../hooks/usePrism";
+import SectionHeader from "../../../components/globals/SectionHeader.vue";
+import Input from "../../../components/ui/Input.vue";
+import Button from "../../../components/ui/Button.vue";
+import PreCode from "../../../components/ui/PreCode.vue";
+import usePrism from "../../../hooks/usePrism";
 
 const name_field = ref('');
 const email_field = ref('');

@@ -4,12 +4,12 @@ import Button from "@/components/ui/Button.vue";
 import GroceryBudItem from "@/components/grocery-bud/GroceryBudItem.vue";
 import {ref} from "@vue/reactivity";
 import {computed} from "@vue/runtime-core";
-import colors from "../data/colors";
+import colors from "../../data/colors";
 
-import {useColorStore} from "../stores/ColorStore";
+import {useColorStore} from "../../stores/ColorStore";
 import {onMounted} from "vue";
-import {shadeColor} from "../utilities/color-converters";
-import useBackground from "../hooks/useBackground";
+import {shadeColor} from "../../utilities/color-converters";
+import useBackground from "../../hooks/useBackground";
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 

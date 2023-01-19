@@ -1,13 +1,13 @@
 <script setup>
-import Input from "../components/ui/Input.vue";
-import {items} from "../data/lorem-ipsum";
+import Input from "../../components/ui/Input.vue";
+import {items} from "../../data/lorem-ipsum";
 import {computed, watch} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
-import Preloader from "../components/ui/Preloader.vue";
+import Preloader from "../../components/ui/Preloader.vue";
 import {onMounted} from "vue";
-import {useColorStore} from "../stores/ColorStore";
-import CheckboxGroup from "../components/ui/CheckboxGroup.vue";
-import useBackground from "../hooks/useBackground";
+import {useColorStore} from "../../stores/ColorStore";
+import CheckboxGroup from "../../components/ui/CheckboxGroup.vue";
+import useBackground from "../../hooks/useBackground";
 
 const colorStore = useColorStore();
 

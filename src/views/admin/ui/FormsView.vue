@@ -4,8 +4,8 @@ import Input from "@/components/ui/Input.vue";
 import Form from "@/components/ui/Form.vue";
 import Checkbox from "@/components/ui/Checkbox.vue";
 import {ref} from "vue";
-import CheckboxGroup from "../components/ui/CheckboxGroup.vue";
-import Radio from "../components/ui/Radio.vue";
+import CheckboxGroup from "../../../components/ui/CheckboxGroup.vue";
+import Radio from "../../../components/ui/Radio.vue";
 
 const checkbox_is_active = ref(true);
 
