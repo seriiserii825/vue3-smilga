@@ -2,15 +2,14 @@
 import {onMounted, ref} from "vue";
 import useBackground from "../../hooks/useBackground";
 import CartTable from "../../components/projects/cart/CartTable.vue";
+import CartTotal from "../../components/projects/cart/CartTotal.vue";
 
 const bg_color = ref('#f5f5f5');
 
 const cart_items = ref([
-  {id: 1, title: "Samsung Galaxy S21", price: 1000, quantity: 1},
-  {id: 2, title: "Samsung Galaxy S21 Ultra", price: 1200, quantity: 1},
-  {id: 3, title: "Samsung Galaxy S21 Plus", price: 1100, quantity: 1},
-  {id: 4, title: "Samsung Galaxy S21 FE", price: 900, quantity: 1},
-  {id: 5, title: "Samsung Galaxy S21 5G", price: 800, quantity: 1},
+  {id: 1, title: "Samsung Galaxy S21", price: 1000, quantity: 1, image: 'samsung-s21.jpg'},
+  {id: 2, title: "Samsung Galaxy S21 Ultra", price: 1200, quantity: 1, image: 'samsung-s21-ultra.jpg'},
+  {id: 3, title: "Samsung Galaxy S21 Plus", price: 1100, quantity: 1, image: 'samsung-s21-plus.jpg'},
 ]);
 
 onMounted(() => {
@@ -31,9 +30,12 @@ onMounted(() => {
         </div>
       </div>
     </section>
-    <section class="cart-view__table">
-<CartTable/>
-    </section>
+    <div class="container">
+      <section class="cart-view__table">
+        <CartTable :items="cart_items"/>
+      </section>
+      <CartTotal/>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -64,6 +66,11 @@ onMounted(() => {
     color: white;
     background: var(--accent-hover);
     border-radius: 50%;
+  }
+  &__table {
+    margin: 0 auto;
+    max-width: 60rem;
+    padding: 8rem 0 2rem;
   }
 }
 </style>
