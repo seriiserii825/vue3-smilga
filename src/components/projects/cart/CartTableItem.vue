@@ -1,7 +1,10 @@
 <script setup>
+import {useCartStore} from "../../../stores/CartStore";
+const cartStore = useCartStore();
+const {setCart} = cartStore;
 const props = defineProps({
   item: {
-    type: Array,
+    type: Object,
     required: true,
   },
 });

@@ -1,16 +1,14 @@
 <script setup>
-const props = defineProps({
-  total: {
-    type: Number,
-    default: 0
-  },
-});
+import {useCartStore} from "../../../stores/CartStore";
+import {storeToRefs} from "pinia";
+const cartStore = useCartStore();
+const {total} = storeToRefs(cartStore);
 </script>
 <template>
   <div class='cart-total'>
     <div class="cart-total__wrap">
       <h3 class="cart-total__title">Total</h3>
-      <div class="cart-total__price">${{ total }}</div>
+      <div class="cart-total__price"><strong>${{ total }}</strong></div>
     </div>
   </div>
 </template>

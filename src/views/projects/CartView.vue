@@ -3,14 +3,13 @@ import {onMounted, ref} from "vue";
 import useBackground from "../../hooks/useBackground";
 import CartTable from "../../components/projects/cart/CartTable.vue";
 import CartTotal from "../../components/projects/cart/CartTotal.vue";
+import {useCartStore} from "../../stores/CartStore";
+import {storeToRefs} from "pinia";
+
+const cartStore = useCartStore();
+const {cart_items, total_quantity} = storeToRefs(cartStore);
 
 const bg_color = ref('#f5f5f5');
-
-const cart_items = ref([
-  {id: 1, title: "Samsung Galaxy S21", price: 1000, quantity: 1, image: 'samsung-s21.jpg'},
-  {id: 2, title: "Samsung Galaxy S21 Ultra", price: 1200, quantity: 1, image: 'samsung-s21-ultra.jpg'},
-  {id: 3, title: "Samsung Galaxy S21 Plus", price: 1100, quantity: 1, image: 'samsung-s21-plus.jpg'},
-]);
 
 onMounted(() => {
   const use_bg = useBackground('cart', -40);
@@ -25,13 +24,13 @@ onMounted(() => {
           <h2>Cart</h2>
           <div class="cart-view__cart">
             <font-awesome-icon icon="fa-cart-shopping"/>
-            <span class="cart-view__count">9</span>
+            <span class="cart-view__count">{{ total_quantity }}</span>
           </div>
         </div>
       </div>
     </section>
     <div class="container">
-      <section class="cart-view__table">
+      <section class="cart-view__table" v-if="cart_items">
         <CartTable :items="cart_items"/>
       </section>
       <CartTotal/>
