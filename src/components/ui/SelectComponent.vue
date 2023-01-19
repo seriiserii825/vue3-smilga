@@ -10,6 +10,10 @@ const props = defineProps({
     type: Object,
     required: false,
   },
+  values: {
+    type: Array,
+    required: false,
+  },
   tabindex: {
     type: Number,
     required: false,
@@ -24,23 +28,33 @@ const emits = defineEmits(['update:value']);
 
 const is_visible_options = ref(false);
 
+function getItemById(id){
+  return props.options.find(item => item.id === id);
+}
+
 function toggleIsVisibleOptions() {
   is_visible_options.value = !is_visible_options.value;
 }
 
-function handleFocusOut() {
-  is_visible_options.value = false;
-}
-
 function handleOptionClick(option) {
-  emits('update:value', option);
+  if(props.values){
+    let local_values= [...props.values];
+    if(local_values.includes(option.id)){
+      local_values.splice(local_values.indexOf(option.id), 1);
+    }else{
+      local_values.push(option.id);
+    }
+    emits('update:values', local_values);
+  }else{
+    emits('update:value', option);
+  }
   is_visible_options.value = false;
 }
 </script>
 <template>
   <div class="select prevent-select"
        :tabindex="props.tabindex || -1"
-       @focusout="handleFocusOut">
+  >
     <header class="select__header">
       <h3 v-if="props.label" class="select__title filter-title">
         <span class="select__span">{{ props.label }}</span>
@@ -50,7 +64,13 @@ function handleOptionClick(option) {
           class="select-selected"
           @click="toggleIsVisibleOptions"
       >
-        <span>{{ props.value.title }}</span>
+        <span v-if="props.value">{{ props.value.title }}</span>
+        <span v-else>
+          <span v-if="props.values && props.values.length > 0">
+            <span class="select-selected__span" v-for="item in props.values" :key="item">{{ getItemById(item).title
+              }}</span>
+          </span>
+        </span>
       </div>
     </header>
     <ul class="select-options"
@@ -59,6 +79,7 @@ function handleOptionClick(option) {
       <li v-for="item in props.options"
           :key="item.id"
           class="select-options__item"
+          :class="{'selected': props.values && props.values.includes(item.id)}"
           @click="handleOptionClick({id: item.id, title: item.title})"
       >{{ item.title }}
       </li>
@@ -89,9 +110,14 @@ function handleOptionClick(option) {
     &__item {
       padding: 1rem 3rem;
       transition: all 0.4s;
+      border-bottom: 1px solid #ccc;
       cursor: pointer;
       &:hover {
         background-color: #eee;
+      }
+      &.selected {
+        color: white;
+        background: var(--accent);
       }
     }
   }
@@ -104,12 +130,10 @@ function handleOptionClick(option) {
     font-size: 1.8rem;
     line-height: 2.1rem;
     color: #505050;
-
     @media screen and (max-width: 1312px) {
       font-size: 1.5rem;
       line-height: 1.8rem;
     }
-
     @media screen and (max-width: 1200px) {
       font-size: 1.8rem;
       line-height: 2.1rem;
@@ -142,6 +166,16 @@ function handleOptionClick(option) {
       &::after {
         transform: rotate(180deg);
       }
+    }
+    &__span {
+      display: inline-block;
+      margin-right: 0.5rem;
+      padding: 0.2rem 0.4rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      background: var(--accent);
+      border-radius: 0.3rem;
     }
   }
 }
