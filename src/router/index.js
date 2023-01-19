@@ -57,6 +57,14 @@ const router = createRouter({
             },
         },
         {
+            path: '/ui/select',
+            name: 'select',
+            component: () => import('../views/SelectView.vue'),
+            meta: {
+                layout: AppLayoutsEnum.admin,
+            },
+        },
+        {
             path: '/ui/input',
             name: 'input',
             component: () => import('../views/InputView.vue'),
