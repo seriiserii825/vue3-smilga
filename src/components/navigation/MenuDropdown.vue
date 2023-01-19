@@ -36,10 +36,7 @@ function toggleList() {
         class="menu-dropdown__header prevent-select"
         @click="toggleList"
     >
-			<span class="menu-dropdown__icon"
-      ><font-awesome-icon :icon="`fa-solid ${icon}`"
-      /></span>
-      <span>{{ label }}</span>
+			<span class="menu-dropdown__icon"><font-awesome-icon :icon="`fa-solid ${icon}`"/></span><span>{{ label }}</span>
     </header>
     <ul v-if="isVisibleList" class="menu-dropdown__list">
       <li v-for="{ title, url } in items" :key="title">

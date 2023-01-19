@@ -87,6 +87,11 @@ const router = createRouter({
             name: 'grocery-bud',
             component: () => import('../views/projects/GroceryBud.vue'),
         },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: () => import('../views/projects/CartView.vue'),
+        },
     ],
 });
 
