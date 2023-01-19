@@ -18,21 +18,9 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  behaviour: {
-    type: String,
+  errors: {
+    type: Array,
     required: false,
-  },
-  error: {
-    type: String,
-    required: false,
-  },
-  max: {
-    type: Number,
-    required: false
-  },
-  min: {
-    type: Number,
-    required: false
   },
   value: {
     type: [String, Number],
@@ -58,18 +46,12 @@ function changeHandler(e) {
         :id="id"
         :type="type"
         :placeholder="placeholder !== undefined ? placeholder : null"
-        :class="[
-				{ 'input--success': behaviour === 'success' },
-				{ 'input--error': behaviour === 'error' },
-			]"
-        :max="max ? max : null"
-        :min="min ? min : null"
         :value="propsValue"
-        @change="changeHandler"
+        @input="changeHandler"
     />
-    <p v-if="error" class="input__message input__message--error">
-      {{ error }}
-    </p>
+    <div v-if="errors && errors.length" class="input__message input__message--error">
+      <p v-for="error in errors" :key="error.$uid">{{ error.$message }}</p>
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -104,9 +86,7 @@ function changeHandler(e) {
     }
   }
   &__message {
-    position: absolute;
-    bottom: -2rem;
-    left: 0;
+    margin-top: 0.6rem;
     font-size: 1.2rem;
     color: var(--error);
   }
