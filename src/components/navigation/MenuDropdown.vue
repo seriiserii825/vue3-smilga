@@ -17,13 +17,13 @@ const props = defineProps({
   },
 });
 
-const isVisibleList = ref(false);
+const isVisibleList = ref(true);
 const router = useRouter()
 const route_path = router.currentRoute.value.path;
 
-isVisibleList.value = props.items.some((item) => {
-  return item.url === route_path;
-});
+// isVisibleList.value = props.items.some((item) => {
+//   return item.url === route_path;
+// });
 
 
 function toggleList() {

@@ -1,5 +1,4 @@
 <script setup>
-import {computed} from "@vue/runtime-core";
 import {ref} from "@vue/reactivity";
 
 const props = defineProps({
@@ -10,36 +9,35 @@ const props = defineProps({
 })
 
 const code = `<font-awesome-icon icon="${props.className}"/>`;
-const code_class = ref('');
+const copied = ref(false);
 function copyToBuffer(){
   navigator.clipboard.writeText(code);
-  code_class.value = 'copied';
+  copied.value = true;
 }
 </script>
 <template>
-<div class='icons-view-item'>
+<div @click="copyToBuffer" class='icons-view-item'>
   <div class="icons-view__wrap">
     <div class="icons-view__icon">
-      <font-awesome-icon :icon="className"/>
+      <font-awesome-icon v-if="!copied" :icon="className"/>
+      <span v-else>copied</span>
     </div>
-    <div
-        class="icons-view__code"
-        @click="copyToBuffer"
-    >{{ code_class === 'copied' ? 'copied' : code }}</div>
   </div>
 </div>
 </template>
 <style lang="scss" scoped>
 .icons-view-item {
-  padding: 2rem 0;
-  border-bottom: 1px solid #aaa;
-}
-.icons-view__wrap {
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-.icons-view__icon {
-  margin-right: 3rem;
+  padding: 2rem 0;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: all .4s;
+  &:hover {
+    color: white;
+    background: #000;
+  }
 }
 .icons-view__code {
   cursor: pointer;
