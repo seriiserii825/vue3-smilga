@@ -92,6 +92,14 @@ const router = createRouter({
             name: 'cart',
             component: () => import('../views/projects/CartView.vue'),
         },
+        {
+            path: '/ui/icons',
+            name: 'icons',
+            component: () => import('../views/IconsView.vue'),
+            meta: {
+                layout: AppLayoutsEnum.admin,
+            },
+        },
     ],
 });
 
