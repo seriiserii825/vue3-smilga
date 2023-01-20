@@ -22,8 +22,22 @@ export const useCartStore = defineStore('cart', () => {
 
 
     function setCart(value) {
-        cart_items.value = value;
+        const id = value.id;
+        const quantity = value.value;
+
+        const idx = cart_items.value.findIndex(item => item.id === id);
+        if (quantity > 0) {
+            cart_items.value[idx].quantity += 1;
+        } else {
+            if (cart_items.value[idx].quantity !== 1) {
+                cart_items.value[idx].quantity -= 1;
+            }
+        }
     }
 
-    return {cart_items, total, setCart, total_quantity}
+    function removeItem(id){
+       cart_items.value = cart_items.value.filter(item => item.id !== id);
+    }
+
+    return {cart_items, total, setCart, total_quantity, removeItem}
 })

@@ -1,13 +1,22 @@
 <script setup>
 import {useCartStore} from "../../../stores/CartStore";
 const cartStore = useCartStore();
-const {setCart} = cartStore;
+const {setCart, removeItem} = cartStore;
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
 });
+
+function quantityClick(params){
+  setCart(params);
+}
+
+function removeClick(id){
+  removeItem(id);
+}
+
 </script>
 <template>
   <div class='cart-table-item prevent-select'>
@@ -17,14 +26,14 @@ const props = defineProps({
     <div class="cart-table-item__content">
       <h3 class="cart-table-item__title">{{ item.title }}</h3>
       <p class="cart-table-item__price">Price: <strong>${{ item.price }}</strong></p>
-      <span class="cart-table-item__remove">remove</span>
+      <span @click="removeClick(item.id)" class="cart-table-item__remove">remove</span>
     </div>
     <div class="cart-table-item__quantity">
-      <span class="cart-table-item__update cart-table-item__minus">
+      <span @click="quantityClick({id: item.id, value: 1})" class="cart-table-item__update cart-table-item__minus">
         <font-awesome-icon icon="fa-angle-up"/>
       </span>
       <span class="cart-table-item__count">{{ item.quantity }}</span>
-      <span class="cart-table-item__update cart-table-item__plus">
+      <span @click="quantityClick({id: item.id, value: -1})" class="cart-table-item__update cart-table-item__plus">
         <font-awesome-icon icon="fa-angle-down"/>
       </span>
     </div>
@@ -64,6 +73,7 @@ const props = defineProps({
   }
   &__remove {
     color: var(--error);
+    cursor: pointer;
   }
   &__quantity {
     display: flex;
