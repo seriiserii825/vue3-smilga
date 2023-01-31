@@ -56,40 +56,42 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class='lorem-ipsum' :style="{background: bg_color}">
-    <div class="container">
-      <section class="lorem-ipsum__wrap">
-        <aside class="lorem-ipsum__sidebar">
-          <h1 class="title">Lorem ipsum generator</h1>
-          <header class="lorem-ipsum__header">
-            <p>Paragraphs: </p>
-            <Input type="number" v-model:value="count" :max="max_count" :min="1"/>
-          </header>
-          <div class="lorem-ipsum__filter">
-            <div>{{ selected_checkbox_items }}</div>
-            <CheckboxGroup
-                :options="checkbox_items"
-                name="checkbox"
-                v-model:value="selected_checkbox_items"
-            />
-          </div>
-        </aside>
-        <main class="lorem-ipsum__content">
-          <Preloader v-if="loading"/>
-          <div v-else>
-            <ul class="lorem-ipsum__list" v-if="filtered && filtered.length">
-              <li v-for="({id, title, subtitle, text, date}) in filtered" :key="id">
-                <h2 v-if="filterByCheckbox('Use title')">{{ title }}</h2>
-                <h3 v-if="filterByCheckbox('Use subtitle')">{{ subtitle }}</h3>
-                <p v-if="filterByCheckbox('Use text')">{{ text }}</p>
-                <footer v-if="filterByCheckbox('Use footer')">Date: <strong>({{ date }})</strong></footer>
-              </li>
-            </ul>
-          </div>
-        </main>
-      </section>
+  <transition appear>
+    <div class='lorem-ipsum' :style="{background: bg_color}">
+      <div class="container">
+        <section class="lorem-ipsum__wrap">
+          <aside class="lorem-ipsum__sidebar">
+            <h1 class="title">Lorem ipsum generator</h1>
+            <header class="lorem-ipsum__header">
+              <p>Paragraphs: </p>
+              <Input type="number" v-model:value="count" :max="max_count" :min="1"/>
+            </header>
+            <div class="lorem-ipsum__filter">
+              <div>{{ selected_checkbox_items }}</div>
+              <CheckboxGroup
+                  :options="checkbox_items"
+                  name="checkbox"
+                  v-model:value="selected_checkbox_items"
+              />
+            </div>
+          </aside>
+          <main class="lorem-ipsum__content">
+            <Preloader v-if="loading"/>
+            <div v-else>
+              <ul class="lorem-ipsum__list" v-if="filtered && filtered.length">
+                <li v-for="({id, title, subtitle, text, date}) in filtered" :key="id">
+                  <h2 v-if="filterByCheckbox('Use title')">{{ title }}</h2>
+                  <h3 v-if="filterByCheckbox('Use subtitle')">{{ subtitle }}</h3>
+                  <p v-if="filterByCheckbox('Use text')">{{ text }}</p>
+                  <footer v-if="filterByCheckbox('Use footer')">Date: <strong>({{ date }})</strong></footer>
+                </li>
+              </ul>
+            </div>
+          </main>
+        </section>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 <style lang="scss" scoped>
 .lorem-ipsum {

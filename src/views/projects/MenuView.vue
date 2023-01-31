@@ -1,10 +1,12 @@
 <template>
+  <transition appear>
   <div class="menu-view" :style="{background: bg_color }">
     <div class="container">
       <MenuFilter @filter="handleFilter" :categories="categories"/>
       <MenuItems :items="items"/>
     </div>
   </div>
+  </transition>
 </template>
 <script setup>
 import {ref} from '@vue/runtime-core';

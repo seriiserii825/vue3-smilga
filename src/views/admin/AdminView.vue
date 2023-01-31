@@ -1,9 +1,11 @@
 <script setup>
-  import Colors from "@/components/ui/Colors.vue";
+import Colors from "@/components/ui/Colors.vue";
 </script>
 <template>
-	<div>
-    <Colors/>
-	</div>
+  <transition appear>
+    <div>
+      <Colors/>
+    </div>
+  </transition>
 </template>
 <style lang="scss"></style>

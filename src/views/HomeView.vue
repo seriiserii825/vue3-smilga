@@ -5,6 +5,7 @@ import colors from "../data/colors";
 import {shadeColor} from "../utilities/color-converters";
 import {onMounted} from "vue";
 import {useColorStore} from "../stores/ColorStore";
+
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 
@@ -23,20 +24,22 @@ onMounted(() => {
 </script>
 <template>
   <main>
-    <div class="home">
-      <div class="container">
-        <div class="home__grid">
-          <InfoWidget
-              v-for="item in menu_items"
-              :key="item.id"
-              :title="item.title"
-              :subtitle="item.subtitle"
-              :url="item.url"
-              :color="item.color"
-          />
+    <transition appear>
+      <div class="home">
+        <div class="container">
+          <div class="home__grid">
+            <InfoWidget
+                v-for="item in menu_items"
+                :key="item.id"
+                :title="item.title"
+                :subtitle="item.subtitle"
+                :url="item.url"
+                :color="item.color"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </main>
 </template>
 <style lang="scss" scoped>

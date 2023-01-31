@@ -18,19 +18,22 @@ function emitColors(value) {
     loading.value = false;
   }, 500);
 }
+
 onMounted(() => {
   const use_bg = useBackground('color', -50);
   bg_color.value = use_bg.color_from_file;
 })
 </script>
 <template>
-  <div class='color-generator' :style="{background: bg_color}">
-    <div class="container">
-      <ColorGeneratorHeader :color="color" @emitColors="emitColors"/>
-      <Preloader v-if="loading === true"/>
-      <ColorGeneratorBody v-else :colors="colors"/>
+  <transition appear>
+    <div class='color-generator' :style="{background: bg_color}">
+      <div class="container">
+        <ColorGeneratorHeader :color="color" @emitColors="emitColors"/>
+        <Preloader v-if="loading === true"/>
+        <ColorGeneratorBody v-else :colors="colors"/>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 <style lang="scss" scoped>
 .color-generator {

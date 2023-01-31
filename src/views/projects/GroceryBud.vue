@@ -10,6 +10,7 @@ import {useColorStore} from "../../stores/ColorStore";
 import {onMounted} from "vue";
 import {shadeColor} from "../../utilities/color-converters";
 import useBackground from "../../hooks/useBackground";
+
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 
@@ -112,32 +113,34 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class='grocery-bud' :style="{background: bg_color}">
-    <div class="container">
-      <div class="grocery-bud__body">
-        <div v-if="message" :class="`grocery-bud__info ${messageClass}`">{{ message }}</div>
-        <h2 class="grocery-bud__title">Grocery Bud</h2>
-        <div class="grocery-bud__form">
-          <Input v-model:value="search" placeholder="e.g. eggs"/>
-          <Button
-              :label="mode_submit ? 'Submit' : 'Edit'"
-              @click="onSubmit"
-          />
+  <transition appear>
+    <div class='grocery-bud' :style="{background: bg_color}">
+      <div class="container">
+        <div class="grocery-bud__body">
+          <div v-if="message" :class="`grocery-bud__info ${messageClass}`">{{ message }}</div>
+          <h2 class="grocery-bud__title">Grocery Bud</h2>
+          <div class="grocery-bud__form">
+            <Input v-model:value="search" placeholder="e.g. eggs"/>
+            <Button
+                :label="mode_submit ? 'Submit' : 'Edit'"
+                @click="onSubmit"
+            />
+          </div>
+          <ul v-if="items.length" class="grocery-bud__list">
+            <GroceryBudItem
+                v-for="(item) in items"
+                :key="item.id" :item="item"
+                @remove-emit="removeItem"
+                @edit-emit="editItem"
+            />
+          </ul>
+          <footer class="grocery-bud__footer">
+            <Button @click="clearItems" label="Clear Items" :outline="true" color="error"/>
+          </footer>
         </div>
-        <ul v-if="items.length" class="grocery-bud__list">
-          <GroceryBudItem
-              v-for="(item) in items"
-              :key="item.id" :item="item"
-              @remove-emit="removeItem"
-              @edit-emit="editItem"
-          />
-        </ul>
-        <footer class="grocery-bud__footer">
-          <Button @click="clearItems" label="Clear Items" :outline="true" color="error"/>
-        </footer>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 <style lang="scss" scoped>
 .grocery-bud {

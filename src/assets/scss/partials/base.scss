@@ -172,3 +172,12 @@ pre {
 	color: white;
 	background: var(--dark-bg);
 }
+.v-enter-active,
+.v-leave-active {
+	transition: opacity 0.8s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+	opacity: 0;
+}
