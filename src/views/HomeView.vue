@@ -14,7 +14,8 @@ const menu_items = [
   {id: 2, title: 'Lorem ipsum', subtitle: 'Generator for title and text', url: '/lorem-ipsum', color: colors.lorem},
   {id: 3, title: 'Color generator', subtitle: 'Generator for color', url: 'color-generator', color: colors.color},
   {id: 4, title: 'Grocery Bud', subtitle: 'Todo like app', url: 'grocery-bud', color: colors.grocery},
-  {id: 5, title: 'Cart', subtitle: 'Complex cart single', url: 'cart', color: colors.cart}
+  {id: 5, title: 'Cart', subtitle: 'Complex cart single', url: 'cart', color: colors.cart},
+  {id: 6, title: 'Quiz', subtitle: 'Answer to the lot of questions', url: 'quiz', color: colors.cart}
 ];
 
 onMounted(() => {

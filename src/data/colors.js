@@ -5,5 +5,6 @@ const colors = {
     color: '#4fb54f',
     grocery: '#e0c745',
     cart: '#adb9c0',
+    quiz: '#b29f37',
 };
 export default colors;
