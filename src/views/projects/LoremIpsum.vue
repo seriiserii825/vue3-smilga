@@ -8,29 +8,22 @@ import {onMounted} from "vue";
 import {useColorStore} from "../../stores/ColorStore";
 import CheckboxGroup from "../../components/ui/CheckboxGroup.vue";
 import useBackground from "../../hooks/useBackground";
-
 const colorStore = useColorStore();
-
 const bg_color = ref('#f5f5f5');
-
 const count = ref(3);
 const max_count = items.length;
 const loading = ref(false);
-
 const checkbox_items = ref([
   {id: 1, title: "Use title"},
   {id: 2, title: "Use subtitle"},
   {id: 3, title: "Use text"},
   {id: 4, title: "Use footer"},
 ]);
-
 const selected_checkbox_items = ref([1, 2]);
-
 const filterByCheckbox = (title) => {
   const id = checkbox_items.value.find((item) => item.title === title).id;
   return selected_checkbox_items.value.includes(id);
 };
-
 let filtered = computed(() => {
   loading.value = true;
   let result = items.slice(0, count.value);
@@ -39,8 +32,6 @@ let filtered = computed(() => {
   }, 500);
   return result;
 })
-
-
 watch(count, () => {
   if (count.value < 1) {
     count.value = 1;
@@ -49,7 +40,6 @@ watch(count, () => {
     count.value = max_count;
   }
 });
-
 onMounted(() => {
   const use_bg = useBackground('lorem', -40);
   bg_color.value = use_bg.color_from_file;
