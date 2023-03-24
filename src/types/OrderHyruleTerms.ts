@@ -1,0 +1,1 @@
+export type TOrderHyruleTerms = 'title' | 'location' | 'salary';

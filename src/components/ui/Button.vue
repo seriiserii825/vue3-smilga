@@ -20,8 +20,7 @@ const props = defineProps({
 </script>
 <template>
   <button :class="['btn', { 'btn--outline': outline }, `btn--${color}`, {'btn--icon': icon}]">
-    <span v-if="icon"><font-awesome-icon :icon="`fa-solid ${icon}`"/></span>
-    <span v-else>{{ label }}</span>
+    <slot></slot>
   </button>
 </template>
 <style lang="scss" scoped>
