@@ -38,18 +38,6 @@ function changeHandler(e) {
   let value = e.target.value;
   emits('update:value', value);
 }
-ion changeHandler(e) {
-  let value = e.target.value;
-  emits('update:value', value);
-}
-ion changeHandler(e) {
-  let value = e.target.value;
-  emits('update:value', value);
-}
-ion changeHandler(e) {
-  let value = e.target.value;
-  emits('update:value', value);
-}
 </script>
 <template>
   <div class="input">
