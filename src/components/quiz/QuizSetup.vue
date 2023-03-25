@@ -35,20 +35,32 @@ function onSubmit(){
             v-model:value="number_of_questions"
         />
       </div>
-      <Button
-      @click="onSubmit"
-      >Start</Button>
     </div>
+    <footer class="quiz-setup__footer">
+      <div class="quiz-setup__btn">
+        <Button
+            @click="onSubmit"
+        >Start</Button>
+      </div>
+    </footer>
   </div>
 </template>
 <style lang="scss" scoped>
 .quiz-setup {
   &__title {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     font-size: 3rem;
   }
   &__input {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+  }
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__btn {
+    width: 20rem;
   }
 }
 </style>
