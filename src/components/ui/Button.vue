@@ -15,11 +15,15 @@ const props = defineProps({
   icon: {
     type: String,
     required: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 });
 </script>
 <template>
-  <button :class="['btn', { 'btn--outline': outline }, `btn--${color}`, {'btn--icon': icon}]">
+  <button :class="['btn', { 'btn--outline': outline }, `btn--${color}`, {'btn--icon': icon}, {'disabled': disabled}]">
     <slot></slot>
   </button>
 </template>
@@ -29,8 +33,9 @@ const props = defineProps({
   justify-content: center;
   align-items: center;
   padding: 0 2rem;
+  width: 100%;
   height: 4.5rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: white;
   background: var(--accent);
@@ -39,6 +44,10 @@ const props = defineProps({
   &:hover {
     cursor: pointer;
     background: var(--accent-hover);
+  }
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
   &.btn--contrast {
     color: white;

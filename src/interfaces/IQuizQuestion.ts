@@ -1,10 +1,11 @@
-export interface IQuizAnswer {
+export interface IQuizQuestion {
     id: number;
     title: string;
-    questions: IQuizQuestion[];
+    answers: IQuizAnswer[];
+    right_answer: number;
 }
 
-export interface IQuizQuestion {
+export interface IQuizAnswer {
     id: number;
     title: string;
 }
