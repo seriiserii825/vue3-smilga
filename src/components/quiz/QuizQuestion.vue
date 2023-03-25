@@ -3,8 +3,14 @@ import {PropType} from "vue";
 import {IQuizQuestion} from "../../interfaces/IQuizQuestion";
 import Button from "../ui/Button.vue";
 import {ref} from "@vue/reactivity";
+import {EQuizStore} from "../../enum/EQuizStore";
+import {useQuizStore} from "../../stores/quiz-store.js";
+import {storeToRefs} from "pinia";
 
-const emits = defineEmits(["emit_next_question"]);
+const quiz_store = useQuizStore();
+const {current_question} = storeToRefs(quiz_store);
+
+
 const props = defineProps({
   question: {
     type: Object as PropType<IQuizQuestion>,
@@ -26,7 +32,7 @@ function toggleAnswer(id: number) {
 }
 
 function onSubmit() {
-  emits("emit_next_question", props.current_question);
+  quiz_store[EQuizStore.SET_CURRENT_QUESTION](current_question.value + 1);
 }
 </script>
 <template>

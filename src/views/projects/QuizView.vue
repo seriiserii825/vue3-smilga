@@ -7,11 +7,13 @@ import QuizSetup from "../../components/quiz/QuizSetup.vue";
 import {quiz_questions} from "../../data/quiz/quiz-questions.js";
 import QuizQuestion from "../../components/quiz/QuizQuestion.vue";
 import Preloader from "../../components/ui/Preloader.vue";
-
+import {useQuizStore} from "../../stores/quiz-store.js";
+import {storeToRefs} from "pinia";
+const quiz_store = useQuizStore();
+const {current_question} = storeToRefs(quiz_store);
 const bg_color = ref('#f5f5f5');
 const loading = ref(false);
 const questions = ref<IQuizQuestion[]>([]);
-const current_question = ref(0);
 const max_number_of_questions = ref(0);
 const is_quiz_started = ref(true);
 const is_quiz_finished = ref(false);
@@ -43,7 +45,6 @@ onMounted(() => {
           :question="questions[current_question]"
           :max_number_of_questions="max_number_of_questions"
           :current_question="current_question + 1"
-          @emit_next_question="current_question++"
       />
       <Preloader v-else/>
     </div>
