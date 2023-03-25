@@ -49,7 +49,7 @@ function onSubmit() {
       >
         <td>{{ item.title }}</td>
         <td>{{ item.answer }}</td>
-        <td>{{ item.your_answer }}</td>
+        <td :class="{'active': item.answer === item.your_answer}">{{ item.your_answer }}</td>
       </tr>
       </tbody>
     </table>
@@ -79,6 +79,12 @@ function onSubmit() {
     th {
       background: var(--dark-bg);
       color: white;
+    }
+  }
+  td {
+    &.active {
+      color: white;
+      background: var(--success);
     }
   }
   &__footer {
