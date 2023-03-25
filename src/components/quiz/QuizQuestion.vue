@@ -32,7 +32,7 @@ function toggleAnswer(id: number) {
 }
 
 function onSubmit() {
-  quiz_store[EQuizStore.SET_CURRENT_QUESTION](current_question.value + 1);
+  quiz_store[EQuizStore.setCurrentQuestion](current_question.value + 1);
 }
 </script>
 <template>
