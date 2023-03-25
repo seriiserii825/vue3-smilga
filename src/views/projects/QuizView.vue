@@ -40,24 +40,32 @@ onMounted(() => {
 </script>
 <template>
   <div class='quiz' :style="{background: bg_color}">
-    <div class="quiz__body">
-      <QuizSetup
+    <TransitionGroup name="up">
+      <div
           v-if="quiz_started_status === false && !quiz_is_finished && !result_status"
-          :max_number_of_questions="max_number_of_questions"
-      />
-      <QuizQuestion
+          class="quiz__body">
+        <QuizSetup :max_number_of_questions="max_number_of_questions"/>
+      </div>
+      <div
           v-if="quiz_started_status && !result_status"
-          :question="quiz_list[current_question]"
-          :max_number_of_questions="max_number_of_questions"
-          :current_question="current_question + 1"
-      />
-      <QuizFinished
+          class="quiz__body">
+        <QuizQuestion
+            :question="quiz_list[current_question]"
+            :max_number_of_questions="max_number_of_questions"
+            :current_question="current_question + 1"
+        />
+      </div>
+      <div
           v-if="!quiz_started_status && quiz_is_finished"
-      />
-      <QuizResult
+          class="quiz__body">
+        <QuizFinished/>
+      </div>
+      <div
           v-if="result_status"
-      />
-    </div>
+          class="quiz__body">
+        <QuizResult/>
+      </div>
+    </TransitionGroup>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -74,5 +82,21 @@ onMounted(() => {
     background: white;
     border-radius: 0.5rem;
   }
+}
+.up-move,
+.up-enter-active,
+.up-leave-active {
+  transition: all 0.5s ease;
+}
+.up-enter-from {
+  opacity: 0;
+  transform: translateX(-1030px);
+}
+.up-leave-to {
+  opacity: 0;
+  transform: translateX(1030px);
+}
+.up-leave-active {
+  position: absolute;
 }
 </style>
