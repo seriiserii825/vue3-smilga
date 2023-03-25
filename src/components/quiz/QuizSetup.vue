@@ -2,6 +2,12 @@
 import Input from "../ui/Input.vue";
 import {ref} from "@vue/reactivity";
 import Button from "../ui/Button.vue";
+import {useQuizStore} from "../../stores/quiz-store.js";
+import {storeToRefs} from "pinia";
+import {EQuizStore} from "../../enum/EQuizStore";
+
+const quiz_store = useQuizStore();
+const {quiz_list} = storeToRefs(quiz_store);
 
 const number_of_questions = ref('');
 
@@ -11,6 +17,10 @@ const props = defineProps({
     required: true,
   }
 });
+function onSubmit(){
+  quiz_store[EQuizStore.setQuizList](quiz_list.value.slice(0, +number_of_questions.value));
+  quiz_store[EQuizStore.setQuizIsStarted](true);
+}
 </script>
 <template>
   <div class='quiz-setup'>
@@ -25,7 +35,9 @@ const props = defineProps({
             v-model:value="number_of_questions"
         />
       </div>
-      <Button>Start</Button>
+      <Button
+      @click="onSubmit"
+      >Start</Button>
     </div>
   </div>
 </template>

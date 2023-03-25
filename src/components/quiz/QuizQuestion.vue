@@ -32,15 +32,21 @@ function toggleAnswer(id: number) {
 }
 
 function onSubmit() {
+  quiz_store[EQuizStore.setQuizAnswers]({id: props.question.id, answer_id: active_answer.value});
+  active_answer.value = null;
+  if(props.max_number_of_questions === current_question.value + 1){
+    quiz_store[EQuizStore.setQuizIsStarted](false);
+    quiz_store[EQuizStore.setQuizIsFinished](true);
+  }
   quiz_store[EQuizStore.setCurrentQuestion](current_question.value + 1);
 }
 </script>
 <template>
   <div class='quiz-question'>
     <header class="quiz-question__header">
-      <div class="quiz-question__info">Current Question {{ current_question }}/{{ max_number_of_questions }}</div>
+      <div class="quiz-question__info">Current Question {{ current_question + 1 }}/{{ max_number_of_questions }}</div>
     </header>
-    <h2 class="quiz-question__title">Question title</h2>
+    <h2 class="quiz-question__title">{{ question.title }}</h2>
     <ul class="quiz-question__list">
       <li
           v-for="item in question.answers"

@@ -2,7 +2,7 @@ export interface IQuizQuestion {
     id: number;
     title: string;
     answers: IQuizAnswer[];
-    right_answer: number;
+    answer: number;
 }
 
 export interface IQuizAnswer {
