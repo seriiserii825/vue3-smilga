@@ -20,17 +20,17 @@ const jobs = ref<IJobs[]>([
   },
   {
     id: '2',
-    title: "Breath of the Wild Jobs",
-    location: "Tailando - Hyrule Castle",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, adipisci, alias, amet animi atque autem beatae consectetur consequatur corporis cumque cupiditate delectus deleniti deserunt dignissimos doloremque doloribus ea eius enim eos error est et eum ex excepturi expedita explicabo facilis fuga fugiat harum hic id illum impedit in incidunt inventore ipsa ipsam ipsum iste iure iusto laboriosam laborum laudantium libero magnam maiores maxime minima minus molestiae mollitia nam natus necessitatibus neque nesciunt nisi nobis non nostrum nulla numquam obcaecati officia officiis omnis optio pariatur perferendis perspiciatis placeat praesentium quae quam quas qui quibusdam quidem quis quod ratione recusandae repellat reprehenderit repudiandae rerum saepe sapiente sed sequi similique sit soluta suscipit tempora temporibus tenetur totam ullam unde ut velit veniam veritatis vero voluptas voluptate voluptates voluptatibus voluptatum.",
-    salary: 2000,
-  },
-  {
-    id: '3',
     title: "Ocarina of Time Jobs",
     location: "Panama - Hyrule Castle",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, adipisci, alias, amet animi atque autem beatae consectetur consequatur corporis cumque cupiditate delectus deleniti deserunt dignissimos doloremque doloribus ea eius enim eos error est et eum ex excepturi expedita explicabo facilis fuga fugiat harum hic id illum impedit in incidunt inventore ipsa ipsam ipsum iste iure iusto laboriosam laborum laudantium libero magnam maiores maxime minima minus molestiae mollitia nam natus necessitatibus neque nesciunt nisi nobis non nostrum nulla numquam obcaecati officia officiis omnis optio pariatur perferendis perspiciatis placeat praesentium quae quam quas qui quibusdam quidem quis quod ratione recusandae repellat reprehenderit repudiandae rerum saepe sapiente sed sequi similique sit soluta suscipit tempora temporibus tenetur totam ullam unde ut velit veniam veritatis vero voluptas voluptate voluptates voluptatibus voluptatum.",
     salary: 1700,
+  },
+  {
+    id: '3',
+    title: "Breath of the Wild Jobs",
+    location: "Alabama - Hyrule Castle",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, adipisci, alias, amet animi atque autem beatae consectetur consequatur corporis cumque cupiditate delectus deleniti deserunt dignissimos doloremque doloribus ea eius enim eos error est et eum ex excepturi expedita explicabo facilis fuga fugiat harum hic id illum impedit in incidunt inventore ipsa ipsam ipsum iste iure iusto laboriosam laborum laudantium libero magnam maiores maxime minima minus molestiae mollitia nam natus necessitatibus neque nesciunt nisi nobis non nostrum nulla numquam obcaecati officia officiis omnis optio pariatur perferendis perspiciatis placeat praesentium quae quam quas qui quibusdam quidem quis quod ratione recusandae repellat reprehenderit repudiandae rerum saepe sapiente sed sequi similique sit soluta suscipit tempora temporibus tenetur totam ullam unde ut velit veniam veritatis vero voluptas voluptate voluptates voluptatibus voluptatum.",
+    salary: 2000,
   },
   {
     id: '4',
