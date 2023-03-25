@@ -1,15 +1,13 @@
-export const quez_questions = [{
-    title: "1. Как называется еврейский Новый год?", questions: [{
-        id: 1, title: "а) Ханука"
-    }, {
-        id: 2, title: "б) Йом Кипур"
-    }, {
-        id: 3, title: "в) Кванза"
-    }, {
-        id: 4, title: "г) Рош ха-Шана"
-    },], answers: 1
+export const quiz_questions = [{
+    id: 1,
+    title: "1. Как называется еврейский Новый год?",
+    questions: [{id: 1, title: "а) Ханука"}, {id: 2, title: "б) Йом Кипур"}, {id: 3, title: "в) Кванза"}, {
+        id: 4,
+        title: "г) Рош ха-Шана"
+    },],
+    answers: 1
 }, {
-    title: "2. Сколько синих полос на флаге США?", questions: [{
+    id: 2, title: "2. Сколько синих полос на флаге США?", questions: [{
         id: 1, title: "а) 6"
     }, {
         id: 2, title: "б) 7"
@@ -19,7 +17,7 @@ export const quez_questions = [{
         id: 4, title: "г) 0"
     },], answer: 4
 }, {
-    title: "3. Кто из этих персонажей не дружит с Гарри Поттером?", questions: [{
+    id: 3, title: "3. Кто из этих персонажей не дружит с Гарри Поттером?", questions: [{
         id: 1, title: "а) Рон Уизли"
     }, {
         id: 2, title: "б) Невилл Лонгботтом"
@@ -29,7 +27,7 @@ export const quez_questions = [{
         id: 4, title: "г) Гермиона Грейнджер"
     },], answer: 3
 }, {
-    title: "4. Какое животное не фигурирует в китайском зодиаке?", questions: [{
+    id: 4, title: "4. Какое животное не фигурирует в китайском зодиаке?", questions: [{
         id: 1, title: "а) Дракон"
     }, {
         id: 2, title: "б) Кролик"
@@ -39,7 +37,7 @@ export const quez_questions = [{
         id: 4, title: "г) Колибри"
     },], answer: 4
 }, {
-    title: "5. В какой стране проходили летние Олимпийские игры 2016 года?", questions: [{
+    id: 5, title: "5. В какой стране проходили летние Олимпийские игры 2016 года?", questions: [{
         id: 1, title: "а) Китай"
     }, {
         id: 2, title: "б) Ирландия"
@@ -49,7 +47,7 @@ export const quez_questions = [{
         id: 4, title: "г) Италия"
     },], answer: 3
 }, {
-    title: "6. Какая планета самая горячая?", questions: [{
+    id: 6, title: "6. Какая планета самая горячая?", questions: [{
         id: 1, title: "а) Венера"
     }, {
         id: 2, title: "б) Сатурн"
@@ -59,8 +57,7 @@ export const quez_questions = [{
         id: 4, title: "г) Марс"
     },], answer: 1
 }, {
-    title: "7. Как назывался корабль капитана Джека Воробья в ' Пиратах Карибского моря '?",
-    questions: [{
+    id: 7, title: "7. Как назывался корабль капитана Джека Воробья в ' Пиратах Карибского моря '?", questions: [{
         id: 1, title: "а) Мародер"
     }, {
         id: 2, title: "б) Черная жемчужина"
@@ -70,8 +67,7 @@ export const quez_questions = [{
         id: 4, title: "г) Слизерин"
     },], answer: 2
 }, {
-    title: "9. Кто из этих персонажей не входит в группу друзей из сериала ' Друзья '?",
-    questions: [{
+    id: 8, title: "9. Кто из этих персонажей не входит в группу друзей из сериала ' Друзья '?", questions: [{
         id: 1, title: "а) Рэйчел"
     }, {
         id: 2, title: "б) Джоуи"
@@ -81,7 +77,7 @@ export const quez_questions = [{
         id: 4, title: "г) Моника"
     },], answer: 3
 }, {
-    title: "10. Сколько костей в теле человека?", questions: [{
+    id: 9, title: "10. Сколько костей в теле человека?", questions: [{
         id: 1, title: "а) 206"
     }, {
         id: 2, title: "б) 205"
@@ -91,7 +87,7 @@ export const quez_questions = [{
         id: 4, title: "г) 209"
     },], answer: 1
 }, {
-    title: "11. Fe — это символ какого химического элемента?", questions: [{
+    id: 10, title: "11. Fe — это символ какого химического элемента?", questions: [{
         id: 1, title: "а) Цинк"
     }, {
         id: 2, title: "б) Водород"
@@ -101,7 +97,7 @@ export const quez_questions = [{
         id: 4, title: "г) Железо"
     },], answer: 4
 }, {
-    title: "12. На каком языке говорит больше всего людей на Земле?", questions: [{
+    id: 11, title: "12. На каком языке говорит больше всего людей на Земле?", questions: [{
         id: 1, title: "а) китайский"
     }, {
         id: 2, title: "б) испанский"
@@ -111,7 +107,7 @@ export const quez_questions = [{
         id: 4, title: "г) английский"
     },], answer: 1
 }, {
-    title: "13. Какая самая короткая трагедия Шекспира?", questions: [{
+    id: 12, title: "13. Какая самая короткая трагедия Шекспира?", questions: [{
         id: 1, title: "а) Макбет"
     }, {
         id: 2, title: "б) Гамлет"
@@ -121,7 +117,7 @@ export const quez_questions = [{
         id: 4, title: "г) Отелло"
     },], answer: 1
 }, {
-    title: "14. Сколько сердец у осьминога?", questions: [{
+    id: 13, title: "14. Сколько сердец у осьминога?", questions: [{
         id: 1, title: "а) 1"
     }, {
         id: 2, title: "б) 2"
@@ -131,7 +127,7 @@ export const quez_questions = [{
         id: 4, title: "г) 4"
     },], answer: 3
 }, {
-    title: "15. Какая социальная сеть появилась в 2003 году?", questions: [{
+    id: 14, title: "15. Какая социальная сеть появилась в 2003 году?", questions: [{
         id: 1, title: "а) Myspace"
     }, {
         id: 2, title: "б) Twitter"
@@ -141,7 +137,7 @@ export const quez_questions = [{
         id: 4, title: "г) ВКонтакте"
     },], answer: 1
 }, {
-    title: "16. Какая планета в нашей Солнечной системе самая большая?", questions: [{
+    id: 15, title: "16. Какая планета в нашей Солнечной системе самая большая?", questions: [{
         id: 1, title: "а) Юпитер"
     }, {
         id: 2, title: "б) Сатурн"
@@ -151,7 +147,7 @@ export const quez_questions = [{
         id: 4, title: "г) Земля"
     },], answer: 1
 }, {
-    title: "17. Кто расписывал потолок Сикстинской капеллы?", questions: [{
+    id: 16, title: "17. Кто расписывал потолок Сикстинской капеллы?", questions: [{
         id: 1, title: "а) Пабло Пикассо"
     }, {
         id: 2, title: "б) Леонардо Да Винчи"
@@ -161,7 +157,7 @@ export const quez_questions = [{
         id: 4, title: "г) Винсент Ван Гог"
     },], answer: 3
 }, {
-    title: "18. Какой океан самый большой на Земле?", questions: [{
+    id: 17, title: "18. Какой океан самый большой на Земле?", questions: [{
         id: 1, title: "а) Индийский"
     }, {
         id: 2, title: "б) Тихий"
@@ -171,7 +167,7 @@ export const quez_questions = [{
         id: 4, title: "г) Южный"
     },], answer: 2
 }, {
-    title: "19. Кто нарисовал Мону Лизу?", questions: [{
+    id: 18, title: "19. Кто нарисовал Мону Лизу?", questions: [{
         id: 1, title: "а) Винсент Ван Гог"
     }, {
         id: 2, title: "б) Леонардо да Винчи"
@@ -181,7 +177,7 @@ export const quez_questions = [{
         id: 4, title: "г) Клод Моне"
     },], answer: 2
 }, {
-    title: "20. Какая страна потребляет больше всего шоколада?", questions: [{
+    id: 19, title: "20. Какая страна потребляет больше всего шоколада?", questions: [{
         id: 1, title: "а) Испания"
     }, {
         id: 2, title: "б) Германия"
@@ -191,7 +187,7 @@ export const quez_questions = [{
         id: 4, title: "г) Швейцария"
     },], answer: 4
 }, {
-    title: "22. Какая река самая длинная в мире?", questions: [{
+    id: 20, title: "22. Какая река самая длинная в мире?", questions: [{
         id: 1, title: "а) Амазонка"
     }, {
         id: 2, title: "б) Конго"
@@ -201,7 +197,7 @@ export const quez_questions = [{
         id: 4, title: "г) Гудзон"
     },], answer: 3
 }, {
-    title: "23. Сколько дней в феврале в високосный год?", questions: [{
+    id: 21, title: "23. Сколько дней в феврале в високосный год?", questions: [{
         id: 1, title: "а) 28"
     }, {
         id: 2, title: "б) 29"
@@ -211,7 +207,7 @@ export const quez_questions = [{
         id: 4, title: "г) 31"
     },], answer: 2
 }, {
-    title: "24. Сколько градусов в круге?", questions: [{
+    id: 22, title: "24. Сколько градусов в круге?", questions: [{
         id: 1, title: "а) 360"
     }, {
         id: 2, title: "б) 180"
@@ -221,7 +217,7 @@ export const quez_questions = [{
         id: 4, title: "г) 90"
     },], answer: 1
 }, {
-    title: "25. Какой город известен, как Город Любви?", questions: [{
+    id: 23, title: "25. Какой город известен, как Город Любви?", questions: [{
         id: 1, title: "а) Рим"
     }, {
         id: 2, title: "б) Барселона"
@@ -231,7 +227,7 @@ export const quez_questions = [{
         id: 4, title: "г) Париж"
     },], answer: 4
 }, {
-    title: "26. Сколько зубов должно быть во рту взрослого человека?", questions: [{
+    id: 24, title: "26. Сколько зубов должно быть во рту взрослого человека?", questions: [{
         id: 1, title: "а) 35"
     }, {
         id: 2, title: "б) 32"
@@ -241,7 +237,7 @@ export const quez_questions = [{
         id: 4, title: "г) 42"
     },], answer: 1
 }, {
-    title: "27. Какой цвет является комплементарным зеленому?", questions: [{
+    id: 25, title: "27. Какой цвет является комплементарным зеленому?", questions: [{
         id: 1, title: "а) синий"
     }, {
         id: 2, title: "б) желтый"
@@ -251,7 +247,7 @@ export const quez_questions = [{
         id: 4, title: "г) фиолетовый"
     },], answer: 2
 }, {
-    title: "28. Сколько существует книг о Гарри Поттере?", questions: [{
+    id: 26, title: "28. Сколько существует книг о Гарри Поттере?", questions: [{
         id: 1, title: "а) 7"
     }, {
         id: 2, title: "б) 8"
@@ -261,7 +257,7 @@ export const quez_questions = [{
         id: 4, title: "г) 10"
     },], answer: 1
 }, {
-    title: "29. Великобритания состоит из следующих стран: Англия, Ирландия, Уэльс и…", questions: [{
+    id: 27, title: "29. Великобритания состоит из следующих стран: Англия, Ирландия, Уэльс и…", questions: [{
         id: 1, title: "а) Франция"
     }, {
         id: 2, title: "б) Венгрия"
@@ -271,7 +267,7 @@ export const quez_questions = [{
         id: 4, title: "г) Австрия"
     },], answer: 2
 }, {
-    title: "30. Сколько элементов в таблице Менделеева?", questions: [{
+    id: 28, title: "30. Сколько элементов в таблице Менделеева?", questions: [{
         id: 1, title: "а) 112"
     }, {
         id: 2, title: "б) 118"
@@ -281,7 +277,7 @@ export const quez_questions = [{
         id: 4, title: "г) 143"
     },], answer: 2
 }, {
-    title: "31. Какая змея самая смертоносная?", questions: [{
+    id: 29, title: "31. Какая змея самая смертоносная?", questions: [{
         id: 1, title: "а) Питон"
     }, {
         id: 2, title: "б) Кобра"
@@ -291,7 +287,7 @@ export const quez_questions = [{
         id: 4, title: "г) Черная Мамба"
     },], answer: 4
 }, {
-    title: "32. Как называется семейная стая львов?", questions: [{
+    id: 30, title: "32. Как называется семейная стая львов?", questions: [{
         id: 1, title: "а) Отряд"
     }, {
         id: 2, title: "б) Пакет"
@@ -301,7 +297,7 @@ export const quez_questions = [{
         id: 4, title: "г) Прайд"
     },], answer: 4
 }, {
-    title: "33. Сколько клавиш у стандартного современного пианино / фортепиано?", questions: [{
+    id: 31, title: "33. Сколько клавиш у стандартного современного пианино / фортепиано?", questions: [{
         id: 1, title: "а) 86"
     }, {
         id: 2, title: "б) 87"
@@ -311,7 +307,7 @@ export const quez_questions = [{
         id: 4, title: "г) 89"
     },], answer: 3
 }, {
-    title: "34. Как звали женщину из греческой мифологии, у которой вместо волос были змеи?", questions: [{
+    id: 32, title: "34. Как звали женщину из греческой мифологии, у которой вместо волос были змеи?", questions: [{
         id: 1, title: "а) Пандора"
     }, {
         id: 2, title: "б) Елена"
@@ -321,7 +317,7 @@ export const quez_questions = [{
         id: 4, title: "г) Медуза"
     },], answer: 4
 }, {
-    title: "35. За какой приблизительный период Луна совершает полный оборот вокруг Земли?", questions: [{
+    id: 33, title: "35. За какой приблизительный период Луна совершает полный оборот вокруг Земли?", questions: [{
         id: 1, title: "а) 7 дней"
     }, {
         id: 2, title: "б) 27 дней"
@@ -331,7 +327,7 @@ export const quez_questions = [{
         id: 4, title: "г) 365 дней"
     },], answer: 2
 }, {
-    title: "36. Кто в греческой мифологии является царицей царства мёртвых?", questions: [{
+    id: 34, title: "36. Кто в греческой мифологии является царицей царства мёртвых?", questions: [{
         id: 1, title: "а) Пандора"
     }, {
         id: 2, title: "б) Медуза"
@@ -341,7 +337,7 @@ export const quez_questions = [{
         id: 4, title: "г) Персефона"
     },], answer: 4
 }, {
-    title: "37. При какой температуре по Фаренгейту замерзает вода?", questions: [{
+    id: 35, title: "37. При какой температуре по Фаренгейту замерзает вода?", questions: [{
         id: 1, title: "а) 32 градуса"
     }, {
         id: 2, title: "б) 40 градусов"
@@ -351,7 +347,7 @@ export const quez_questions = [{
         id: 4, title: "г) 0 градусов"
     },], answer: 1
 }, {
-    title: "38. Кто основал Microsoft?", questions: [{
+    id: 36, title: "38. Кто основал Microsoft?", questions: [{
         id: 1, title: "а) Билл Хейдер"
     }, {
         id: 2, title: "б) Стив Джобс"
@@ -361,8 +357,7 @@ export const quez_questions = [{
         id: 4, title: "г) Марк Цукерберг"
     },], answer: 3
 }, {
-    title: "39. Какие две планеты в нашей Солнечной системе известны, как ' ледяные гиганты '?",
-    questions: [{
+    id: 37, title: "39. Какие две планеты в нашей Солнечной системе известны, как ' ледяные гиганты '?", questions: [{
         id: 1, title: "а) Нептун и Юпитер"
     }, {
         id: 2, title: "б) Уран и Плутон"
@@ -372,7 +367,7 @@ export const quez_questions = [{
         id: 4, title: "г) Нептун и Уран"
     },], answer: 4
 }, {
-    title: "40. В какой стране находится Прага?", questions: [{
+    id: 38, title: "40. В какой стране находится Прага?", questions: [{
         id: 1, title: "а) Венгрия"
     }, {
         id: 2, title: "б) Австрия"
@@ -382,7 +377,7 @@ export const quez_questions = [{
         id: 4, title: "г) Германия"
     },], answer: 3
 }, {
-    title: "41. Сколько ребер в теле человека?", questions: [{
+    id: 39, title: "41. Сколько ребер в теле человека?", questions: [{
         id: 1, title: "а) 16"
     }, {
         id: 2, title: "б) 24"

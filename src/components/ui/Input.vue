@@ -1,6 +1,5 @@
 <script setup>
 import {computed} from "@vue/runtime-core";
-
 const props = defineProps({
   type: {
     type: String,
@@ -25,18 +24,25 @@ const props = defineProps({
   value: {
     type: [String, Number],
     required: false
+  },
+  max: {
+    type: Number,
+    required: false
   }
 });
-
 const propsValue = computed(() => {
   return props.value;
 });
-
 const emits = defineEmits(['update:value']);
-
-function changeHandler(e) {
+function inputHanlder(e) {
   let value = e.target.value;
   emits('update:value', value);
+}
+function changeHandler(e) {
+  let value = e.target.value;
+  if (props.max && value > props.max) {
+    emits('update:value', props.max);
+  }
 }
 </script>
 <template>
@@ -47,7 +53,9 @@ function changeHandler(e) {
         :type="type"
         :placeholder="placeholder !== undefined ? placeholder : null"
         :value="propsValue"
-        @input="changeHandler"
+        :max="type === 'number' ? max : null"
+        @input="inputHanlder"
+        @change="changeHandler"
     />
     <div v-if="errors && errors.length" class="input__message input__message--error">
       <p v-for="error in errors" :key="error.$uid">{{ error.$message }}</p>

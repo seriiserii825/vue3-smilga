@@ -14,6 +14,7 @@ const {color} = storeToRefs(colorStore);
       <RouterLink :to="{name: ERoutes.LOREM_IPSUM}">Lorem ipsum</RouterLink>
       <RouterLink :to="{name: ERoutes.COLOR_GENERATOR}">Color generator</RouterLink>
       <RouterLink :to="{name: ERoutes.GROCERY_BUD}">Grocery Bud</RouterLink>
+      <RouterLink :to="{name: ERoutes.QUIZ}">Quiz</RouterLink>
       <RouterLink :to="{name: ERoutes.ADMIN}">Admin</RouterLink>
     </nav>
   </header>
