@@ -23,7 +23,7 @@ const props = defineProps({
     <div class="info-widget__content">
       <h3 class="info-widget__title">{{ title }}</h3>
       <p>{{ subtitle }}</p>
-      <router-link :to="url" class="info-widget__url">More info</router-link>
+      <router-link :to="{name: url}" class="info-widget__url">More info</router-link>
     </div>
   </div>
 </template>

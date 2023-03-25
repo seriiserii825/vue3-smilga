@@ -5,18 +5,19 @@ import colors from "../data/colors";
 import {shadeColor} from "../utilities/color-converters";
 import {onMounted} from "vue";
 import {useColorStore} from "../stores/ColorStore";
+import {ERoutes} from "../enum/ERoutes";
 
 const colorStore = useColorStore();
 const {setColor} = colorStore;
 
 const menu_items = [
-  {id: 1, title: 'Menu', subtitle: 'Filter and order', url: '/menu', color: colors.menu},
-  {id: 2, title: 'Lorem ipsum', subtitle: 'Generator for title and text', url: '/lorem-ipsum', color: colors.lorem},
-  {id: 3, title: 'Color generator', subtitle: 'Generator for color', url: 'color-generator', color: colors.color},
-  {id: 4, title: 'Grocery Bud', subtitle: 'Todo like app', url: 'grocery-bud', color: colors.grocery},
-  {id: 5, title: 'Cart', subtitle: 'Complex cart single', url: 'cart', color: colors.cart},
-  {id: 6, title: 'Quiz', subtitle: 'Answer to the lot of questions', url: 'quiz', color: colors.cart},
-  {id: 7, title: 'Hyrule Jobs', subtitle: 'Beautiful filter on typescript', url: 'hyrule-jobs', color: colors.hyrule}
+  {id: 1, title: 'Menu', subtitle: 'Filter and order', url: ERoutes.MENU, color: colors.menu},
+  {id: 2, title: 'Lorem ipsum', subtitle: 'Generator for title and text', url: ERoutes.LOREM_IPSUM, color: colors.lorem},
+  {id: 3, title: 'Color generator', subtitle: 'Generator for color', url: ERoutes.COLOR_GENERATOR, color: colors.color},
+  {id: 4, title: 'Grocery Bud', subtitle: 'Todo like app', url: ERoutes.GROCERY_BUD, color: colors.grocery},
+  {id: 5, title: 'Cart', subtitle: 'Complex cart single', url: ERoutes.CART, color: colors.cart},
+  {id: 6, title: 'Quiz', subtitle: 'Answer to the lot of questions', url: ERoutes.QUIZ, color: colors.cart},
+  {id: 7, title: 'Hyrule Jobs', subtitle: 'Beautiful filter on typescript', url: ERoutes.HYRULE_JOBS, color: colors.hyrule}
 ];
 
 onMounted(() => {
