@@ -20,7 +20,7 @@ export const quiz_questions = [
                 title: "г) Рош ха-Шана",
             },
         ],
-        right_answer: 1,
+        answer: 1,
     },
     {
         id: 2,

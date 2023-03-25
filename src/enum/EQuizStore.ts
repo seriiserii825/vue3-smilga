@@ -6,4 +6,5 @@ export enum EQuizStore {
     setQuizIsFinished = 'setQuizIsFinished',
     resetQuizAnswers = 'resetQuizAnswers',
     setRightAnswers = 'setRightAnswers',
+    setResultStatus = 'setResultStatus',
 }

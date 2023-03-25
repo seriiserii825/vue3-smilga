@@ -7,6 +7,7 @@ export const useQuizStore = defineStore('quiz', () => {
     const quiz_answers = ref([]);
     const quiz_is_finished = ref(false);
     const right_answers = ref([]);
+    const result_status = ref(false);
     function setCurrentQuestion(value) {
         current_question.value = value;
     }
@@ -29,6 +30,9 @@ export const useQuizStore = defineStore('quiz', () => {
     const setRightAnswers = (value) => {
         right_answers.value.push(value);
     }
+    const setResultStatus = (value) => {
+        result_status.value = value;
+    }
     return {
         current_question,
         setCurrentQuestion,
@@ -42,6 +46,8 @@ export const useQuizStore = defineStore('quiz', () => {
         quiz_is_finished,
         right_answers,
         setRightAnswers,
-        resetQuizAnswers
+        resetQuizAnswers,
+        result_status,
+        setResultStatus
     }
 })

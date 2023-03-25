@@ -10,6 +10,7 @@ import {useQuizStore} from "../../stores/quiz-store.js";
 import {computed} from "@vue/runtime-core";
 import QuizFinished from "../../components/quiz/QuizFinished.vue";
 import useShuffle from "../../hooks/useShuffle.js";
+import QuizResult from "../../components/quiz/QuizResult.vue";
 
 const quiz_store = useQuizStore();
 
@@ -17,7 +18,8 @@ const {
   current_question,
   quiz_started_status,
   quiz_list,
-  quiz_is_finished
+  quiz_is_finished,
+  result_status
 } = storeToRefs(quiz_store);
 
 const bg_color = ref('#f5f5f5');
@@ -40,17 +42,20 @@ onMounted(() => {
   <div class='quiz' :style="{background: bg_color}">
     <div class="quiz__body">
       <QuizSetup
-          v-if="quiz_started_status === false && !quiz_is_finished"
+          v-if="quiz_started_status === false && !quiz_is_finished && !result_status"
           :max_number_of_questions="max_number_of_questions"
       />
       <QuizQuestion
-          v-if="quiz_started_status"
+          v-if="quiz_started_status && !result_status"
           :question="quiz_list[current_question]"
           :max_number_of_questions="max_number_of_questions"
           :current_question="current_question + 1"
       />
       <QuizFinished
           v-if="!quiz_started_status && quiz_is_finished"
+      />
+      <QuizResult
+          v-if="result_status"
       />
     </div>
   </div>
@@ -60,10 +65,11 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 8rem 0;
   min-height: 100vh;
   &__body {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     padding: 3.2rem;
     background: white;
     border-radius: 0.5rem;

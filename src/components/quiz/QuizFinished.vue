@@ -25,7 +25,9 @@ function onSubmit() {
 }
 
 function viewResult() {
-  console.log('view result');
+  quiz_store[EQuizStore.setQuizIsStarted](false);
+  quiz_store[EQuizStore.setQuizIsFinished](false);
+  quiz_store[EQuizStore.setResultStatus](true);
 }
 
 function getPercentage() {
