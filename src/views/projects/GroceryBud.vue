@@ -5,15 +5,12 @@ import GroceryBudItem from "@/components/grocery-bud/GroceryBudItem.vue";
 import {ref} from "@vue/reactivity";
 import {computed} from "@vue/runtime-core";
 import colors from "../../data/colors";
-
 import {useColorStore} from "../../stores/ColorStore";
 import {onMounted} from "vue";
 import {shadeColor} from "../../utilities/color-converters";
 import useBackground from "../../hooks/useBackground";
-
 const colorStore = useColorStore();
 const {setColor} = colorStore;
-
 const mode_submit = ref(true);
 const search = ref('');
 const message = ref('');
@@ -21,8 +18,6 @@ const message_type = ref('');
 const items = ref([]);
 const item_edited_id = ref(null);
 const bg_color = ref('#f5f5f5');
-
-
 function onSubmit() {
   if (search.value.length) {
     if (item_edited_id.value) {
@@ -53,52 +48,42 @@ function onSubmit() {
     emptyMessage();
   }
 }
-
 function removeItem(id) {
   items.value = items.value.filter(item => item.id !== id);
 }
-
 function editItem(id) {
   item_edited_id.value = id;
   mode_submit.value = false;
   const item = items.value.filter(item => item.id === id);
   search.value = item[0].title;
 }
-
 function clearItems() {
   items.value = [];
 }
-
 function resetInput() {
   search.value = '';
 }
-
-
 function clearMessage() {
   setTimeout(() => {
     message.value = '';
     message_type.value = '';
   }, 3000);
 }
-
 function successMessage() {
   message.value = 'Item was added!!!';
   message_type.value = 'success';
   clearMessage();
 }
-
 function errorMessage() {
   message.value = 'Item was already added!!!';
   message_type.value = 'error';
   clearMessage();
 }
-
 function emptyMessage() {
   message.value = 'Search is empty';
   message_type.value = 'error';
   clearMessage();
 }
-
 const messageClass = computed(() => {
   if (message_type.value === 'error') {
     return 'error';
@@ -106,7 +91,6 @@ const messageClass = computed(() => {
     return 'success';
   }
 });
-
 onMounted(() => {
   const use_bg = useBackground('grocery', -50);
   bg_color.value = use_bg.color_from_file;
@@ -121,10 +105,13 @@ onMounted(() => {
           <h2 class="grocery-bud__title">Grocery Bud</h2>
           <div class="grocery-bud__form">
             <Input v-model:value="search" placeholder="e.g. eggs"/>
-            <Button
-                :label="mode_submit ? 'Submit' : 'Edit'"
-                @click="onSubmit"
-            />
+            <div class="grocery-bud__btn">
+              <Button
+                  :label="mode_submit ? 'Submit' : 'Edit'"
+                  @click="onSubmit"
+              >{{ mode_submit ? 'Submit' : 'Edit' }}
+              </Button>
+            </div>
           </div>
           <ul v-if="items.length" class="grocery-bud__list">
             <GroceryBudItem
@@ -135,7 +122,7 @@ onMounted(() => {
             />
           </ul>
           <footer class="grocery-bud__footer">
-            <Button @click="clearItems" label="Clear Items" :outline="true" color="error"/>
+            <Button @click="clearItems" label="Clear Items" :outline="true" color="error">Clear Items</Button>
           </footer>
         </div>
       </div>
